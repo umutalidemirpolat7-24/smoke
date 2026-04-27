@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="light" lang="tr"><head>
+<html lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Nefes Alan Yol - Dashboard</title>
@@ -9,309 +9,362 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-secondary-fixed": "#06200c",
-                      "on-secondary-container": "#4f6b50",
-                      "on-primary-container": "#a2d0d8",
-                      "tertiary-container": "#7e4511",
-                      "surface-tint": "#39656c",
-                      "on-primary-fixed-variant": "#1f4d54",
-                      "on-secondary-fixed-variant": "#324d34",
-                      "on-error-container": "#93000a",
-                      "primary-fixed": "#bcebf3",
-                      "on-surface": "#191c1c",
-                      "on-secondary": "#ffffff",
-                      "tertiary-fixed-dim": "#ffb780",
-                      "surface-container-low": "#f2f4f3",
-                      "tertiary": "#603000",
-                      "secondary": "#49654a",
-                      "on-surface-variant": "#404849",
-                      "error-container": "#ffdad6",
-                      "secondary-fixed-dim": "#b0cfae",
-                      "primary-container": "#2d5a61",
-                      "outline": "#71787a",
-                      "on-tertiary-fixed": "#2f1400",
-                      "on-tertiary": "#ffffff",
-                      "primary": "#114349",
-                      "surface-container-highest": "#e1e3e2",
-                      "error": "#ba1a1a",
-                      "surface-container": "#eceeed",
-                      "secondary-container": "#cbebc9",
-                      "on-tertiary-fixed-variant": "#6e3903",
-                      "secondary-fixed": "#cbebc9",
-                      "tertiary-fixed": "#ffdcc4",
-                      "on-primary-fixed": "#001f24",
-                      "surface-variant": "#e1e3e2",
-                      "inverse-on-surface": "#eff1f0",
-                      "background": "#f8faf9",
-                      "surface-container-lowest": "#ffffff",
-                      "surface-bright": "#f8faf9",
-                      "surface": "#f8faf9",
-                      "on-tertiary-container": "#ffb984",
-                      "surface-container-high": "#e6e9e8",
-                      "on-primary": "#ffffff",
-                      "outline-variant": "#c0c8c9",
-                      "on-background": "#191c1c",
-                      "inverse-surface": "#2e3131",
-                      "surface-dim": "#d8dada",
-                      "on-error": "#ffffff",
-                      "inverse-primary": "#a1ced6",
-                      "primary-fixed-dim": "#a1ced6"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "container-margin": "24px",
-                      "gutter": "16px",
-                      "stack-sm": "8px",
-                      "section-gap": "48px",
-                      "stack-lg": "32px",
-                      "unit": "8px",
-                      "stack-md": "16px"
-              },
-              "fontFamily": {
-                      "headline-xl": ["Manrope"],
-                      "label-md": ["Manrope"],
-                      "body-md": ["Manrope"],
-                      "body-lg": ["Manrope"],
-                      "headline-md": ["Manrope"],
-                      "headline-lg": ["Manrope"],
-                      "label-sm": ["Manrope"]
-              },
-              "fontSize": {
-                      "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600"}],
-                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                      "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "500"}]
-              }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#191c1c",
+                    "inverse-primary": "#a1ced6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#7e4511",
+                    "secondary-fixed": "#cbebc9",
+                    "outline-variant": "#c0c8c9",
+                    "inverse-surface": "#2e3131",
+                    "primary-fixed-dim": "#a1ced6",
+                    "on-primary-fixed-variant": "#1f4d54",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e1e3e2",
+                    "on-primary-container": "#a2d0d8",
+                    "primary-container": "#2d5a61",
+                    "inverse-on-surface": "#eff1f0",
+                    "background": "#f8faf9",
+                    "secondary-container": "#cbebc9",
+                    "secondary": "#49654a",
+                    "outline": "#71787a",
+                    "primary": "#114349",
+                    "surface-bright": "#f8faf9",
+                    "surface-dim": "#d8dada",
+                    "primary-fixed": "#bcebf3",
+                    "surface-tint": "#39656c",
+                    "on-tertiary-fixed-variant": "#6e3903",
+                    "on-surface-variant": "#404849",
+                    "on-primary-fixed": "#001f24",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-secondary-fixed-variant": "#324d34",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e6e9e8",
+                    "tertiary": "#603000",
+                    "tertiary-fixed": "#ffdcc4",
+                    "surface": "#f8faf9",
+                    "on-tertiary-container": "#ffb984",
+                    "surface-container": "#eceeed",
+                    "secondary-fixed-dim": "#b0cfae",
+                    "on-secondary-fixed": "#06200c",
+                    "on-error": "#ffffff",
+                    "on-background": "#191c1c",
+                    "on-secondary-container": "#4f6b50",
+                    "surface-container-highest": "#e1e3e2",
+                    "surface-container-low": "#f2f4f3"
             },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "unit": "8px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
           },
-        }
-      </script>
+        },
+      }
+    </script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
         body {
+            background-color: #f8faf9;
             font-family: 'Manrope', sans-serif;
-            background-color: #F7F9F8;
         }
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
+        .bento-card {
+            background-color: #ffffff;
             border: 1px solid #E0E5E4;
-            box-shadow: 0 4px 40px rgba(45, 90, 97, 0.04);
+            box-shadow: 0 10px 40px -10px rgba(17, 67, 73, 0.04);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-2px);
+        }
+        .breath-ring {
+            background: conic-gradient(from 180deg at 50% 50%, #114349 0deg, #cbebc9 360deg);
+            mask: radial-gradient(farthest-side, transparent 80%, white 0);
+            -webkit-mask: radial-gradient(farthest-side, transparent 80%, white 0);
         }
     </style>
 </head>
-<body class="flex min-h-screen text-on-surface">
-<!-- Sidebar Navigation -->
-<aside class="hidden md:flex flex-col h-screen w-72 border-r border-slate-200 bg-[#F7F9F8] p-6 space-y-4 fixed left-0 top-0 z-50">
-<div class="mb-8 px-2">
-<h1 class="text-lg font-bold text-teal-800 tracking-tight font-headline-md">The Breathable Path</h1>
-<p class="text-xs text-slate-500 font-label-sm">Wise Mentor Guide</p>
+<body class="text-on-surface">
+<!-- TopAppBar for Mobile/Tablet -->
+<header class="fixed top-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm flex items-center justify-between px-6 h-16 md:hidden">
+<h1 class="text-lg font-bold tracking-tight text-teal-900">Nefes Alan Yol</h1>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<span class="material-symbols-outlined text-slate-500">settings</span>
 </div>
-<nav class="flex-1 space-y-2">
-<a class="flex items-center gap-3 px-4 py-3 bg-teal-50 text-teal-800 rounded-full font-semibold transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="h-screen w-72 fixed left-0 top-0 border-r border-slate-200 bg-[#F7F9F8] hidden md:flex flex-col p-6 gap-y-2">
+<div class="flex flex-col mb-8">
+<h1 class="text-xl font-bold text-teal-900 mb-1">Nefes Alan Yol</h1>
+<div class="flex items-center gap-3 mt-4 p-3 bg-white rounded-xl shadow-sm border border-slate-100">
+<img alt="Mentor Profile" class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a calm mature therapist with a warm smile in a brightly lit modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_MBDuEyvWM8POR71Flr7QRZZ09A71Bv7v_1wa1uz3_yIfmO5sN71dJOyLCffFh7rM95FvOB6-EPSnuZmGlpIjCL8PXJx4W3JoOkHbQJ1VvPMLsGytgfBHjx8VJZ-6RRu8Qhn19ZiCh_RV7LPlqL0qDRPQTZ5Xa5AugHEiSgixbqfHOUjZY_nBex2Mx430d5L-3ArY6EzzdmNZhsmZfC8_Pkpxa77EW5FkGuQmOoDNmZLMQ9lEHbH2WINuNjrCxHPn2maCbpVFtAE"/>
+<div>
+<p class="font-label-md text-primary leading-none">Wise Mentor</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">Toparlanma Rehberi</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-teal-800 font-bold shadow-sm rounded-lg border-l-4 border-teal-600 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
 <span class="font-label-md">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-teal-700 transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100/50 hover:text-teal-700 transition-colors" href="#">
+<span class="material-symbols-outlined">emergency</span>
 <span class="font-label-md">Kriz Modu</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-teal-700 transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100/50 hover:text-teal-700 transition-colors" href="#">
+<span class="material-symbols-outlined">event_note</span>
 <span class="font-label-md">Bırakma Planı</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-teal-700 transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="healing">healing</span>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100/50 hover:text-teal-700 transition-colors" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
 <span class="font-label-md">Toparlanma</span>
 </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100/50 hover:text-teal-700 transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-md">Destek</span>
+</a>
 </nav>
-<div class="mt-auto space-y-4">
-<button class="w-full py-3 px-4 bg-primary text-white rounded-full font-label-md flex items-center justify-center gap-2 shadow-lg shadow-teal-900/20 active:scale-95 transition-transform">
-<span class="material-symbols-outlined" data-icon="air">air</span>
-                Nefes Egzersizi Yap
-            </button>
-<div class="pt-4 border-t border-slate-200 flex flex-col gap-2">
-<a class="flex items-center gap-3 px-4 py-2 text-slate-600 text-sm hover:text-teal-700" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span>Ayarlar</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-2 text-slate-600 text-sm hover:text-teal-700" href="#">
-<span class="material-symbols-outlined" data-icon="help">help</span>
-<span>Yardım</span>
-</a>
+<div class="mt-auto pt-6 border-t border-slate-200">
+<div class="p-4 bg-tertiary/5 rounded-xl border border-tertiary/10">
+<p class="text-label-sm text-tertiary-container font-bold mb-1 uppercase tracking-widest">Günün Desteği</p>
+<p class="text-body-md text-tertiary leading-snug">"Nikotin istemek normal. Teslim olmak zorunlu değil."</p>
 </div>
 </div>
 </aside>
-<!-- Main Content Canvas -->
-<main class="flex-1 md:ml-72 min-h-screen pb-24 md:pb-12">
-<!-- Top App Bar -->
-<header class="sticky top-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center">
+<!-- Main Content Area -->
+<main class="md:ml-72 min-h-screen pt-20 md:pt-12 px-6 pb-24 md:pb-12">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
 <div>
-<h2 class="font-headline-md text-teal-800">Dashboard</h2>
+<h2 class="font-headline-xl text-primary">Merhaba, Yolcu</h2>
+<p class="font-body-lg text-slate-500 mt-2">Bugün yeni bir nefes, yeni bir başlangıç.</p>
 </div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-slate-500 hover:bg-teal-50 rounded-full transition-colors">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-</button>
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold overflow-hidden">
-<img alt="Profile" class="w-full h-full object-cover" data-alt="professional headshot of a smiling woman with a calm and confident expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-9XW_6JnJiCdFiD05HcJ837EFmShrggpxOc_TloQtjIuIIWve3K_6UftPUrH600_YRoebCxwPWukZyH9im7_4LCkPLtxVETgdDr1d-3BcCiUA200jtjumklFriJbE4wbzmJCKmbWIQ9AddEL2ajJhr_AKviMdY2hIYn0ecggRK72GNTJT5DFobY6DYpw98GHM9CsWiejTh8xfAp6JuGJsfWl-K_xI4bstwYp13jVdq-tMcwO1nWC4pmcms6fAhdYm3aQkh9ndq_E"/>
+<div class="flex items-center gap-2 px-4 py-2 bg-secondary-fixed text-on-secondary-container rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-md">12 Günlük Başarı</span>
 </div>
 </div>
-</header>
-<div class="p-6 md:p-10 max-w-7xl mx-auto space-y-12">
-<!-- Welcome Section -->
-<section class="space-y-2">
-<h3 class="font-headline-lg text-teal-900">Merhaba, Elif.</h3>
-<p class="font-body-lg text-slate-600">Canın çekerse hızlı destek burada.</p>
-</section>
-<!-- Bento Dashboard Layout -->
-<div class="bento-grid">
-<!-- Main Progress Card (Wide) -->
-<div class="col-span-12 lg:col-span-8 glass-card rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between h-[420px]">
-<div class="relative z-10 flex flex-col h-full">
-<span class="inline-flex px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-xs font-bold w-fit mb-4">MİLESTONE: 72 SAAT</span>
-<h4 class="font-headline-xl text-primary mb-2">Şu Anda Vücudunda Olanlar</h4>
-<p class="font-body-md text-slate-600 max-w-md">Vücudunuzdaki nikotin seviyesi düştükçe, bronşlarınız gevşemeye ve nefes kapasiteniz artmaya başlamış olabilir. Enerji seviyenizde belirgin bir yükseliş görülebilir.</p>
-<div class="mt-auto pt-8">
-<div class="flex justify-between items-end mb-3">
-<div class="space-y-1">
-<p class="text-xs font-label-md text-slate-500 uppercase tracking-widest">Sıradaki Hedef</p>
-<p class="font-headline-md text-teal-700">2 Hafta Dönümü</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-teal-800">4 GÜN KALDI</p>
-</div>
-</div>
-<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-secondary to-primary w-[65%] rounded-full"></div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- 1. SIGARASIZ SURE (Large Hero Card) -->
+<div class="md:col-span-8 bento-card flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative flex-shrink-0">
+<div class="w-48 h-48 rounded-full breath-ring flex items-center justify-center">
+<div class="w-[85%] h-[85%] bg-white rounded-full flex flex-col items-center justify-center shadow-inner">
+<span class="text-headline-xl text-primary leading-none">12</span>
+<span class="font-label-sm text-slate-400 uppercase tracking-widest">GÜN</span>
 </div>
 </div>
 </div>
-<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden md:block">
-<img alt="Breathe" class="w-full h-full object-cover" data-alt="abstract soft flowing silk texture in teal and white tones representing calm breathing and air flow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO2MA-ELcA4k6fLX9MY_bcdgrY2j5hSD0Ga3LZ00YzC1fGmDJUBFkCpR9U3E2bDQLlG6BpXTfPxuTvPHaNJzTZIWuQHwsvI_9X-NbUhP5AoOFh4mAO7__4-1ry8eqdmenHsiGeiNnWjscO_EvJ9eNsBy1eXM7q5L1n2ZyZsSItdRtJ9XQbcYFVJK-jaXiUiS6_RVf50QiS9ahPS6fNessz6qKoTtsd50hM_FBFOre3No8ADUxwEt6gcy6E03Lg7U7L4npmCKzUyjY"/>
+<div class="flex flex-col gap-4 text-center md:text-left">
+<h3 class="font-label-sm text-slate-400 uppercase tracking-widest">Sigarasız Süre</h3>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="flex flex-col">
+<span class="text-headline-md text-primary">4 <span class="text-body-md text-slate-400 font-normal">saat</span></span>
+</div>
+<div class="flex flex-col border-l border-slate-200 pl-4">
+<span class="text-headline-md text-primary">15 <span class="text-body-md text-slate-400 font-normal">dakika</span></span>
+</div>
+<div class="flex flex-col border-l border-slate-200 pl-4">
+<span class="text-headline-md text-primary">240 <span class="text-body-md text-slate-400 font-normal">sigara</span></span>
 </div>
 </div>
-<!-- Savings Overview (Square) -->
-<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-3xl p-8 flex flex-col">
-<div class="flex items-center justify-between mb-8">
-<h4 class="font-headline-md text-primary">Birikimlerin</h4>
-<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
-</div>
-<div class="space-y-6 flex-1">
-<div class="flex justify-between items-center border-b border-slate-50 pb-4">
-<span class="text-slate-500">Bugün</span>
-<span class="font-bold text-teal-800 text-lg">₺65.00</span>
-</div>
-<div class="flex justify-between items-center border-b border-slate-50 pb-4">
-<span class="text-slate-500">Haftalık Tahmin</span>
-<span class="font-bold text-teal-800 text-lg">₺455.00</span>
-</div>
-<div class="flex justify-between items-center border-b border-slate-50 pb-4">
-<span class="text-slate-500">Aylık Tasarruf</span>
-<span class="font-bold text-teal-800 text-lg">₺1,950.00</span>
+<p class="font-body-md text-slate-600 italic mt-2">Bu süre içinde akciğerlerin bayram ediyor.</p>
 </div>
 </div>
-<div class="mt-8 p-4 bg-secondary-fixed text-on-secondary-fixed rounded-2xl flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="headphones">headphones</span>
-</div>
+<!-- 2. SU ANDA VUCUDUNDA OLANLAR (Small Card) -->
+<div class="md:col-span-4 bento-card bg-primary text-white border-none flex flex-col justify-between">
 <div>
-<p class="text-[10px] font-bold uppercase tracking-wider">HEDEF: KULAKLIK</p>
-<p class="font-label-md text-sm">%65 Tamamlandı</p>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary-fixed">favorite</span>
+<h3 class="font-label-md text-primary-fixed uppercase tracking-widest">Vücudunda Olanlar</h3>
 </div>
+<p class="text-body-lg font-medium leading-relaxed">"2-12 hafta: Dolaşım iyileşir, kalp ve kaslara kan akışı güçlenir."</p>
 </div>
+<p class="text-[10px] text-primary-fixed/60 mt-4 leading-tight italic">Disclaimer: Bu bilgiler genel sağlık verileridir. Bireysel durumlarda doktorunuza danışın.</p>
 </div>
-<!-- Daily Log -->
-<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-3xl p-8">
-<h4 class="font-headline-md text-primary mb-6">Günlük Başarıların</h4>
-<div class="space-y-4">
-<div class="flex items-center gap-4 p-4 bg-background rounded-2xl border border-outline-variant/30">
-<div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600">
-<span class="material-symbols-outlined" data-icon="coffee" style="font-variation-settings: 'FILL' 1;">coffee</span>
-</div>
+<!-- 5. KRIZ MODUNA HIZLI GIRIS (Action Panel) -->
+<div class="md:col-span-12 bento-card bg-surface-container-high border-none">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
 <div>
-<p class="font-label-md">Sabah Kahvesi</p>
-<p class="text-xs text-slate-500">Bugün 08:30'da yönetildi</p>
+<h3 class="font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                                Kriz Moduna Hızlı Giriş
+                            </h3>
+<p class="text-body-md text-slate-600">Zorlanıyorsan hemen bir tetikleyici seç.</p>
 </div>
-<span class="material-symbols-outlined ml-auto text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<div class="flex items-center gap-4 p-4 bg-background rounded-2xl border border-outline-variant/30">
-<div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600">
-<span class="material-symbols-outlined" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
-</div>
-<div>
-<p class="font-label-md">Yemek Sonrası</p>
-<p class="text-xs text-slate-500">Bugün 13:15'te yönetildi</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<button class="w-full py-3 border-2 border-dashed border-slate-200 rounded-2xl text-slate-400 font-label-md hover:border-teal-300 hover:text-teal-600 transition-colors">
-                            + Yeni Kriz Yönet
-                        </button>
-</div>
-</div>
-<!-- Crisis Mode Teaser -->
-<div class="col-span-12 lg:col-span-8 glass-card rounded-3xl p-8 bg-gradient-to-br from-primary-container to-primary text-white flex flex-col md:flex-row items-center gap-8">
-<div class="flex-1 space-y-4">
-<h4 class="font-headline-lg">Hızlı Destek Lazım mı?</h4>
-<p class="font-body-md opacity-90">Kriz Modu, o anki yoğun isteği yönetmen için bilimsel temelli teknikler sunar. Sadece 60 saniyeni ayır.</p>
-<button class="px-8 py-3 bg-white text-primary rounded-full font-label-md hover:shadow-xl hover:-translate-y-1 transition-all active:scale-95">
+<button class="px-8 py-4 bg-error text-white rounded-full font-bold shadow-lg hover:bg-error/90 transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">emergency</span>
                             Kriz Modunu Aç
                         </button>
 </div>
-<div class="w-48 h-48 bg-white/10 backdrop-blur-xl rounded-full p-4 flex items-center justify-center relative">
-<div class="absolute inset-0 border-4 border-white/20 rounded-full animate-ping-slow"></div>
-<span class="material-symbols-outlined text-6xl" data-icon="emergency">emergency</span>
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Kahve</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Alkol</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Yemek Sonrası</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Stres</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Sosyal Ortam</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Sıkılma</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Yalnızlık</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Sabah İlk</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all">Gece İstek</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-full font-label-md text-slate-700 hover:border-primary hover:text-primary transition-all font-bold text-error border-error/30">Yoğun Aşerme</button>
+</div>
+</div>
+<!-- 3. TASARRUF (Goal Tracking) -->
+<div class="md:col-span-5 bento-card">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-label-md text-slate-400 uppercase tracking-widest">Birikim &amp; Hedef</h3>
+<span class="material-symbols-outlined text-primary">savings</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 bg-slate-50 rounded-2xl">
+<p class="text-label-sm text-slate-400 mb-1">Bugün</p>
+<p class="text-headline-md text-primary">65 <span class="text-label-md">TL</span></p>
+</div>
+<div class="p-4 bg-slate-50 rounded-2xl">
+<p class="text-label-sm text-slate-400 mb-1">Haftalık</p>
+<p class="text-headline-md text-primary">455 <span class="text-label-md">TL</span></p>
+</div>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">headset</span>
+<span class="font-label-md text-slate-700">Kulaklık</span>
+</div>
+<span class="font-label-md text-primary">780 / 1,500 TL</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 52%"></div>
+</div>
+<p class="text-label-sm text-slate-400 mt-3 text-center">Hedefine ulaşmana 11 gün kaldı!</p>
+</div>
+</div>
+<!-- 4. SIRADAKI SAGLIK ESIGI (Timeline) -->
+<div class="md:col-span-7 bento-card">
+<h3 class="font-label-md text-slate-400 uppercase tracking-widest mb-6">Sıradaki Sağlık Eşiği</h3>
+<div class="space-y-6">
+<div class="relative pl-8 border-l-2 border-primary-fixed pb-6">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-white"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-md text-primary">3-9 Ay Arası</h4>
+<p class="text-body-md text-slate-600 mt-1">Öksürük ve nefes darlığı hissedilir derecede azalır. Akciğerlerin kendini temizleme kapasitesi artar.</p>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-primary text-[10px] font-bold rounded uppercase">Yolda</span>
+</div>
+</div>
+<div class="relative pl-8 border-l-2 border-slate-100 pb-2">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-200 ring-4 ring-white"></div>
+<div>
+<h4 class="font-label-md text-slate-400">1. Yıl</h4>
+<p class="text-body-md text-slate-400 mt-1">Koroner kalp hastalığı riski, sigara içen birine göre yarı yarıya azalır.</p>
 </div>
 </div>
 </div>
-<!-- Health Disclaimer -->
-<footer class="mt-12 text-center">
-<p class="text-xs text-slate-400 italic">Bu bilgiler genel sağlık kilometre taşlarıdır. Süreç kişiden kişiye farklılık gösterebilir. "Başlamış olabilir" veya "görülebilir" ifadeleri klinik gözlemlere dayanır.</p>
-</footer>
+</div>
+<!-- 6. GUNLUK BASARILAR (Micro Cards) -->
+<div class="md:col-span-12">
+<h3 class="font-headline-md text-primary mb-6">Günlük Başarılar</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bento-card border-none bg-secondary-fixed/30 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">coffee</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Sabah Kahvesi</p>
+<p class="text-label-sm text-on-secondary-container/70">Sigarasız tamamlandı</p>
+</div>
+</div>
+<div class="bento-card border-none bg-secondary-fixed/30 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Yemek Sonrası</p>
+<p class="text-label-sm text-on-secondary-container/70">Başarıyla atlatıldı</p>
+</div>
+</div>
+<!-- Empty states for motivation -->
+<div class="bento-card border-dashed border-2 border-slate-200 bg-transparent flex items-center gap-4 group cursor-pointer hover:border-primary transition-all">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">add</span>
+</div>
+<p class="font-label-md text-slate-400 group-hover:text-primary">Yeni An kaydedin</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </main>
-<!-- Bottom Navigation (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-end px-4 pb-6 pt-2 bg-white/90 backdrop-blur-lg border-t border-slate-100 z-50 rounded-t-3xl shadow-[0_-4px_20px_rgba(45,90,97,0.08)]">
-<a class="flex flex-col items-center justify-center bg-teal-600 text-white rounded-2xl p-2.5 scale-110 -translate-y-2 shadow-lg shadow-teal-900/20" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-label-sm text-[10px] mt-1">Ana Sayfa</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 p-2" href="#">
-<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
-<span class="font-label-sm text-[10px] mt-1">Kriz</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 p-2" href="#">
-<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
-<span class="font-label-sm text-[10px] mt-1">Plan</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 p-2" href="#">
-<span class="material-symbols-outlined" data-icon="air">air</span>
-<span class="font-label-sm text-[10px] mt-1">Nefes</span>
-</a>
-</nav>
-<!-- FAB for Crisis (Mobile/Desktop) -->
-<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-14 h-14 bg-error text-white rounded-full flex items-center justify-center shadow-xl shadow-red-900/20 active:scale-90 transition-transform z-50">
-<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<!-- BottomNavBar for Mobile -->
+<nav class="fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t border-slate-200 h-16 grid grid-cols-5 md:hidden z-50">
+<button class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-medium">Dash</span>
 </button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">emergency</span>
+<span class="text-[10px] font-medium">Kriz</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-[10px] font-medium">Plan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="text-[10px] font-medium">Toparla</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-[10px] font-medium">Destek</span>
+</button>
+</nav>
 </body></html>

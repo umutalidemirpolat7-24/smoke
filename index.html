@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -63,9 +62,11 @@
                     "surface-dim": "#d8dad9"
             },
             "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
+                    "DEFAULT": "8px",
+                    "lg": "12px",
+                    "xl": "16px",
+                    "2xl": "24px",
+                    "3xl": "32px",
                     "full": "9999px"
             },
             "spacing": {
@@ -87,7 +88,7 @@
                     "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
                     "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600"}],
                     "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h1": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
                     "h3": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
                     "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
             }
@@ -99,122 +100,133 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .breeze-gradient {
-            background: linear-gradient(135deg, #f7fff2 0%, #bbe6fe 100%);
-        }
         .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(107, 142, 107, 0.1);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.03);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #f8faf8;
+        }
+        .progress-gradient {
+            stroke: url(#ring-gradient);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="bg-surface font-body-md text-on-surface min-h-screen">
 <!-- TopAppBar -->
-<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl border-b border-[#6B8E6B]/10 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/60 backdrop-blur-xl border-b border-primary/5">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary-container">
-<img alt="Kullanıcı Profili" class="w-full h-full object-cover" data-alt="Portrait of a serene young woman with soft natural lighting and a peaceful expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATbCwC8X41SSl01XEwPXnn3r6OjWTy3lIzvynqb9sboyLA-_NQbCzUrt2tJnYjLY-lnu1_equgyHe3ctAmgg1eqUWy1sIeN_MzjqCHLqIe52SEP44AiiqiG9sekiOO6N2ORn-RMTV-2sPCWZAdeO1soD7x1KgYzaChSRaOwr4gDzU7lHNsz9N-gsAqm_mS0x-9FEnYjzRg73iw_NzcLjVmsNn_Ms5lFjyZj4FwxAV5bNmjrAeZwu465snAMdGC8IQLeO8qyHz0xts8"/>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary/20 bg-primary-fixed">
+<img alt="Profil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATbCwC8X41SSl01XEwPXnn3r6OjWTy3lIzvynqb9sboyLA-_NQbCzUrt2tJnYjLY-lnu1_equgyHe3ctAmgg1eqUWy1sIeN_MzjqCHLqIe52SEP44AiiqiG9sekiOO6N2ORn-RMTV-2sPCWZAdeO1soD7x1KgYzaChSRaOwr4gDzU7lHNsz9N-gsAqm_mS0x-9FEnYjzRg73iw_NzcLjVmsNn_Ms5lFjyZj4FwxAV5bNmjrAeZwu465snAMdGC8IQLeO8qyHz0xts8"/>
 </div>
-<span class="text-2xl font-bold text-[#6B8E6B] tracking-tighter">Nefes</span>
+<span class="text-xl font-extrabold text-primary tracking-tight">Nefes</span>
 </div>
-<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#6B8E6B]/5 transition-colors active:scale-95 duration-200">
-<span class="material-symbols-outlined text-[#6B8E6B]">settings</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-primary/70">settings</span>
 </button>
 </header>
-<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
-<!-- Quit Time Section (Circular Progress) -->
-<section class="flex flex-col items-center">
-<div class="relative w-64 h-64 flex items-center justify-center">
-<!-- SVG Progress Ring -->
+<main class="pt-20 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Sigarasız Süre Visualization -->
+<section class="flex flex-col items-center py-4">
+<div class="relative w-72 h-72 flex items-center justify-center">
 <svg class="w-full h-full -rotate-90">
-<circle class="text-surface-container-highest" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
-<circle cx="128" cy="128" fill="transparent" r="110" stroke="url(#gradient)" stroke-dasharray="691" stroke-dashoffset="172" stroke-linecap="round" stroke-width="12"></circle>
+<circle class="text-surface-container-highest" cx="144" cy="144" fill="transparent" r="130" stroke="currentColor" stroke-width="10"></circle>
+<circle class="progress-gradient" cx="144" cy="144" fill="transparent" r="130" stroke-dasharray="816" stroke-dashoffset="200" stroke-linecap="round" stroke-width="12"></circle>
 <defs>
-<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#3a6378"></stop>
-<stop offset="100%" stop-color="#436444"></stop>
+<lineargradient id="ring-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#436444"></stop>
+<stop offset="100%" stop-color="#abd0a9"></stop>
 </lineargradient>
 </defs>
 </svg>
 <div class="absolute flex flex-col items-center text-center">
+<span class="text-xs font-bold uppercase tracking-[0.2em] text-outline mb-1">Sigarasız</span>
+<div class="flex items-baseline gap-1">
 <span class="font-h1 text-primary">12</span>
-<span class="font-label-sm text-outline uppercase tracking-widest">Gün</span>
-<span class="font-h3 text-on-surface-variant mt-1">08:42:15</span>
+<span class="text-lg font-bold text-primary">Gün</span>
+</div>
+<span class="text-xl font-medium text-on-surface-variant mt-1 tabular-nums">08:42:15</span>
 </div>
 </div>
-<h2 class="font-h2 text-primary mt-6">Sigarasız Süre</h2>
-<p class="font-body-md text-outline mt-2 italic text-center">"Her nefes yeni bir başlangıçtır."</p>
+<p class="font-body-md text-outline mt-8 italic text-center max-w-[280px]">"Her nefes yeni bir başlangıçtır, her an yeni bir zafer."</p>
 </section>
-<!-- Current Status (Milestones) -->
+<!-- Health Milestones -->
 <section class="space-y-4">
-<h3 class="font-h3 text-on-surface">Şu Anda Vücudunda Olanlar</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex items-center justify-between">
+<h3 class="font-h3 text-on-surface">Vücudundaki Değişim</h3>
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">Kilometre Taşları</span>
+</div>
+<div class="space-y-3">
 <!-- Achieved -->
-<div class="glass-card p-5 rounded-2xl flex items-start gap-4">
-<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0">
+<div class="glass-card p-5 rounded-2xl flex items-center gap-5 border-l-4 border-l-primary">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 </div>
-<div>
-<span class="font-label-sm text-primary uppercase">Tamamlandı</span>
-<h4 class="font-h3 text-on-surface leading-tight mt-1">72 Saat</h4>
-<p class="text-sm text-on-surface-variant mt-1">Nikotin seviyesi sıfırlandı, bronşlar gevşemeye başladı.</p>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-primary uppercase text-[10px]">72 SAAT TAMAMLANDI</span>
+</div>
+<h4 class="font-bold text-on-surface text-lg">Nikotin Seviyesi Sıfırlandı</h4>
+<p class="text-sm text-on-surface-variant leading-tight mt-0.5">Bronşlar gevşemeye başladı, nefes almak kolaylaşıyor.</p>
 </div>
 </div>
-<!-- Upcoming -->
-<div class="glass-card p-5 rounded-2xl flex items-start gap-4 border-dashed border-2 border-outline-variant">
-<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0">
+<!-- Next Milestone -->
+<div class="glass-card p-5 rounded-2xl flex items-center gap-5 border-2 border-dashed border-outline-variant bg-surface-container-low/30">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-on-secondary-fixed-variant">hourglass_empty</span>
 </div>
-<div>
-<span class="font-label-sm text-secondary uppercase">Sıradaki Hedef</span>
-<h4 class="font-h3 text-on-surface leading-tight mt-1">2 Hafta</h4>
-<p class="text-sm text-on-surface-variant mt-1">Kalan süre: 2 gün 15 saat. Kan dolaşımı belirgin şekilde düzelecek.</p>
+<div class="flex-1">
+<span class="font-label-sm text-secondary uppercase text-[10px]">SIRADAKİ: 2 HAFTA</span>
+<h4 class="font-bold text-on-surface text-lg">Dolaşım İyileşmesi</h4>
+<p class="text-sm text-on-surface-variant mt-0.5">Kalan: 2 gün 15 saat. Kan dolaşımı belirgin düzelecek.</p>
 </div>
 </div>
 </div>
+<p class="text-[10px] text-outline italic text-center px-4">Bu bilgiler genel sağlık verileridir. Her vücut farklı hızda iyileşir.</p>
 </section>
-<!-- Quick Entry to Crisis -->
-<section class="relative overflow-hidden rounded-3xl p-6 bg-primary-container text-on-primary-container shadow-xl">
-<div class="absolute -right-8 -bottom-8 opacity-20">
-<span class="material-symbols-outlined text-[120px]">psychology</span>
+<!-- Crisis Mode Quick Access -->
+<section class="relative overflow-hidden rounded-3xl p-6 bg-primary-container text-on-primary-container shadow-lg">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[140px]">shield_with_heart</span>
 </div>
 <div class="relative z-10 space-y-4">
-<h3 class="font-h3">Canın çekerse hızlı destek burada.</h3>
-<button class="bg-white text-primary px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
-<span class="material-symbols-outlined">emergency_home</span>
-                    KRİZ MODUNU AÇ
-                </button>
+<h3 class="text-lg font-bold">Canın çekerse hızlı destek burada.</h3>
+<button class="bg-surface-container-lowest text-primary px-8 py-3.5 rounded-2xl font-extrabold shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex items-center gap-3 w-full justify-center">
+<span class="material-symbols-outlined font-bold">bolt</span>
+                KRİZ MODUNU AÇ
+            </button>
 </div>
 </section>
 <!-- Savings & Target -->
 <section class="space-y-4">
 <div class="flex justify-between items-end">
 <h3 class="font-h3 text-on-surface">Birikim &amp; Hedef</h3>
-<span class="font-label-sm text-primary">₺2.450 Birikti</span>
+<div class="flex flex-col items-end">
+<span class="font-bold text-primary text-xl">₺2.450</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">BİRİKTİRİLDİ</span>
+</div>
 </div>
 <div class="glass-card p-6 rounded-3xl">
 <div class="flex gap-5 items-center mb-6">
-<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
-<img alt="Hedef" class="w-full h-full object-cover" data-alt="Professional studio photo of high-end wireless over-ear headphones with premium matte finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8rNdCX43279aTIF2IK0-LbUPmADjN_QSrtRvTBLMWPDERVWdwoL3B5T4K3nVIgEOJwiAlv9M4pBKpzGVID6NUYk-QGipnu_3HNFbW4l_UXE8f1aJW7kKYTbepzi_6W9TL-iAQZS8NzpPz24zPS11PPDshLfVX9JdJYpqzHn4YyjDi_GBu6XkpqATsa_YuPK6eLRFMzUHStUHvO9-ooauESgWXqp61PXxaYTd9fbvnWQ-NeMnwaEFAQm2oEkWBe4l5Vdk1cqjIq4EG"/>
+<div class="w-24 h-24 rounded-2xl overflow-hidden shadow-sm border border-surface-container-highest shrink-0">
+<img alt="Hedef" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8rNdCX43279aTIF2IK0-LbUPmADjN_QSrtRvTBLMWPDERVWdwoL3B5T4K3nVIgEOJwiAlv9M4pBKpzGVID6NUYk-QGipnu_3HNFbW4l_UXE8f1aJW7kKYTbepzi_6W9TL-iAQZS8NzpPz24zPS11PPDshLfVX9JdJYpqzHn4YyjDi_GBu6XkpqATsa_YuPK6eLRFMzUHStUHvO9-ooauESgWXqp61PXxaYTd9fbvnWQ-NeMnwaEFAQm2oEkWBe4l5Vdk1cqjIq4EG"/>
 </div>
-<div class="flex-1">
-<h4 class="font-h3 text-on-surface">Sony WH-1000XM5</h4>
+<div class="flex-1 space-y-1">
+<h4 class="font-bold text-on-surface text-lg leading-snug">Sony WH-1000XM5</h4>
 <p class="text-on-surface-variant text-sm">Hedef Fiyat: ₺12.500</p>
+<p class="text-[11px] font-bold text-primary bg-primary-fixed/30 inline-block px-2 py-0.5 rounded">Tahmini: 14 Temmuz</p>
 </div>
 </div>
 <div class="space-y-2">
-<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 20%;"></div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 20%;"></div>
 </div>
-<div class="flex justify-between text-xs font-medium text-outline">
-<span>%20 Tamamlandı</span>
-<span>Tahmini: 14 Temmuz</span>
+<div class="flex justify-between text-[11px] font-bold text-outline uppercase">
+<span>%20 TAMAMLANDI</span>
+<span>₺10.050 KALDI</span>
 </div>
 </div>
 </div>
@@ -223,64 +235,61 @@
 <section class="space-y-4">
 <h3 class="font-h3 text-on-surface">Günlük Başarılar</h3>
 <div class="space-y-3">
-<div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+<div class="glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-orange-200">
 <div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+<div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
 <span class="material-symbols-outlined text-orange-600">coffee</span>
 </div>
 <div>
-<p class="font-bold text-on-surface">Kahve Sonrası</p>
-<p class="text-xs text-on-surface-variant">Tetikleyici Başarıyla Geçildi</p>
+<p class="font-bold text-on-surface text-sm">Sabah Kahvesi — 08:40</p>
+<p class="text-xs text-on-surface-variant">İşe yarayan: Su + 5 derin nefes</p>
 </div>
 </div>
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
-<div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+<div class="glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-blue-200">
 <div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-blue-600">stress_management</span>
+<div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600">work</span>
 </div>
 <div>
-<p class="font-bold text-on-surface">İş Stresi</p>
-<p class="text-xs text-on-surface-variant">Derin Nefes Egzersizi Yapıldı</p>
+<p class="font-bold text-on-surface text-sm">Yoğun İş Stresi — 14:15</p>
+<p class="text-xs text-on-surface-variant">İşe yarayan: Kısa bir yürüyüş</p>
 </div>
 </div>
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
 </div>
 </section>
-<!-- Recovery Entry -->
-<section class="glass-card border-dashed p-6 rounded-3xl flex items-center justify-between bg-surface-container-low/50">
+<!-- Recovery Section -->
+<section class="glass-card border-dashed border-2 p-5 rounded-3xl bg-error-container/5 flex items-center justify-between">
 <div class="flex gap-4 items-center">
-<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center">
-<span class="material-symbols-outlined text-error">restart_alt</span>
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'wght' 600;">restart_alt</span>
 </div>
 <div>
 <h4 class="font-bold text-on-surface">Hata mı yaptın?</h4>
-<p class="text-sm text-on-surface-variant leading-tight">Bir sigara içtiysen buradan toparlan.</p>
+<p class="text-xs text-on-surface-variant">Tökezledin mi? Yol bitmedi, buradan toparlan.</p>
 </div>
 </div>
-<button class="p-2 rounded-full hover:bg-error-container/20 transition-colors">
-<span class="material-symbols-outlined text-error">chevron_right</span>
+<button class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-error">
+<span class="material-symbols-outlined">chevron_right</span>
 </button>
 </section>
 </main>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-2xl border-t border-[#6B8E6B]/10 shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
-<!-- ANA PANEL - Active -->
-<a class="flex flex-col items-center justify-center text-[#6B8E6B] bg-[#6B8E6B]/10 rounded-xl px-4 py-1.5 transition-all active:scale-90 duration-300" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-<span class="font-['Manrope'] font-medium text-[11px] uppercase tracking-wider mt-1">ANA PANEL</span>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/80 backdrop-blur-xl border-t border-primary/5 rounded-t-[32px]">
+<a class="flex flex-col items-center justify-center text-primary bg-primary-fixed/40 rounded-2xl px-6 py-2 transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-bold text-[10px] uppercase tracking-wider mt-1">ANA PANEL</span>
 </a>
-<!-- KRIZ MODU -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-4 py-1.5 hover:text-[#6B8E6B] transition-all active:scale-90 duration-300" href="#">
-<span class="material-symbols-outlined">emergency_home</span>
-<span class="font-['Manrope'] font-medium text-[11px] uppercase tracking-wider mt-1">KRİZ MODU</span>
+<a class="flex flex-col items-center justify-center text-outline px-6 py-2 hover:text-primary transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="font-bold text-[10px] uppercase tracking-wider mt-1">KRİZ</span>
 </a>
-<!-- TOPARLANMA -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-4 py-1.5 hover:text-[#6B8E6B] transition-all active:scale-90 duration-300" href="#">
-<span class="material-symbols-outlined">auto_awesome_motion</span>
-<span class="font-['Manrope'] font-medium text-[11px] uppercase tracking-wider mt-1">TOPARLANMA</span>
+<a class="flex flex-col items-center justify-center text-outline px-6 py-2 hover:text-primary transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-bold text-[10px] uppercase tracking-wider mt-1">GÜNLÜK</span>
 </a>
 </nav>
 </body></html>

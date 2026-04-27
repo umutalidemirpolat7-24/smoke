@@ -3,7 +3,6 @@
 <html class="light" lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nefes - Super Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -14,48 +13,48 @@
             theme: {
                 extend: {
                     "colors": {
-                        "secondary": "#3a6378",
                         "error": "#ba1a1a",
+                        "secondary": "#3a6378",
                         "tertiary": "#625b51",
                         "secondary-fixed-dim": "#a2cce4",
                         "on-error": "#ffffff",
-                        "outline-variant": "#c2c8be",
                         "tertiary-container": "#7b7469",
                         "surface-tint": "#456646",
                         "surface-bright": "#f8faf8",
                         "inverse-primary": "#abd0a9",
+                        "outline-variant": "#c2c8be",
                         "on-primary-container": "#f7fff2",
                         "inverse-surface": "#2e3130",
                         "outline": "#737970",
-                        "surface-container": "#eceeec",
                         "primary-fixed": "#c6edc4",
                         "on-secondary-container": "#3e687c",
+                        "surface-container": "#eceeec",
                         "surface-container-high": "#e6e9e7",
                         "secondary-container": "#bbe6fe",
                         "on-primary-fixed": "#012108",
-                        "on-secondary-fixed": "#001e2b",
                         "on-secondary": "#ffffff",
                         "primary-container": "#5b7d5b",
                         "error-container": "#ffdad6",
-                        "inverse-on-surface": "#eff1ef",
-                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001e2b",
                         "surface-container-highest": "#e1e3e1",
                         "surface": "#f8faf8",
+                        "inverse-on-surface": "#eff1ef",
+                        "on-primary": "#ffffff",
                         "on-error-container": "#93000a",
                         "on-tertiary-fixed": "#1f1b13",
-                        "surface-container-lowest": "#ffffff",
                         "on-tertiary-fixed-variant": "#4c463c",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#436444",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#424841",
                         "tertiary-fixed": "#ebe1d4",
                         "surface-container-low": "#f2f4f2",
                         "on-surface": "#191c1b",
                         "background": "#f8faf8",
-                        "primary": "#436444",
-                        "on-tertiary": "#ffffff",
-                        "on-surface-variant": "#424841",
+                        "on-primary-fixed-variant": "#2e4e30",
                         "surface-dim": "#d8dad9",
                         "secondary-fixed": "#c0e8ff",
                         "on-secondary-fixed-variant": "#1f4c5f",
-                        "on-primary-fixed-variant": "#2e4e30",
                         "tertiary-fixed-dim": "#cfc5b9",
                         "primary-fixed-dim": "#abd0a9",
                         "on-tertiary-container": "#fffbff",
@@ -69,10 +68,10 @@
                         "full": "9999px"
                     },
                     "spacing": {
-                        "unit": "8px",
-                        "card-gap": "20px",
                         "section-margin": "40px",
                         "container-padding": "24px",
+                        "unit": "8px",
+                        "card-gap": "20px",
                         "gutter": "16px"
                     },
                     "fontFamily": {
@@ -96,10 +95,10 @@
         }
     </script>
 <style>
-        body { font-family: 'Manrope', sans-serif; }
+        body { background-color: #f8faf8; font-family: 'Manrope', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(107, 142, 107, 0.1); box-shadow: 0 4px 20px 0px rgba(0,0,0, 0.04); }
-        .breeze-gradient { background: linear-gradient(135deg, #f7fff2 0%, #bbe6fe 100%); }
+        .breeze-gradient { background: linear-gradient(135deg, #f0f4f0 0%, #ffffff 100%); }
+        .timer-glow { box-shadow: 0 0 40px rgba(107, 142, 107, 0.1); }
     </style>
 <style>
     body {
@@ -107,172 +106,154 @@
     }
   </style>
   </head>
-<body class="bg-background text-on-surface">
+<body class="text-on-surface antialiased">
 <!-- TopAppBar Shell -->
-<header class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg border-b border-stone-100 dark:border-stone-800 shadow-sm fixed top-0 left-0 w-full z-50">
-<div class="flex justify-between items-center w-full px-6 py-4">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl border-b border-[#6B8E6B]/10 shadow-sm font-manrope antialiased tracking-tight">
 <div class="flex items-center gap-3">
-<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="close-up portrait of a serene person looking calmly into the camera with soft natural lighting and a minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe1TUvpelYxS3FzDldNvYqgni7-uib1pgblwmzp7SZJMmk9XTa4b3dt3d-FQfIJvIu4NARLyDAf_MvIgvXrAVzBGDRLlgNd56m7OZBR0N7qHgRfzt9SuIFLhkNgzmyb33UfVy_ugFekgE2mvS-4h_f_y-1U8E5UwHcW4vwPnCkUZD-0xo2mTGu_vcn8RyM7tEVoM4DfA_hqBG9eCBIUsjf193p3OZZGAmhvl9rTq0fVgnLEBk_jN2Nl9vo3P-VstL-lA4zVokp_swJ"/>
-<span class="text-2xl font-bold text-[#6B8E6B] dark:text-[#8EAC8E] tracking-tight">Nefes</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a calm smiling man in a soft green sweater against a neutral bright studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVQQyNC5isUZRQ2GTzYniPB4EW4Xi0HGYNaUk6DeIm-J1yNJ33Ftsmwd8Sk_TtW1XE-JAi0goFBOGohUlCeMvG7MA1HVvL7HFU3tAiLE0b93qnRQsQKTc4BtWoZZ1oQ-gilwdJ6bFKALwAmwY3cYFeBxwGxb6iRZQvOKUbwCNdfVXCr6sDLqisVNlZpUFlTFkonZG_HnNfCGOSnQ-rzTcZbXNlH0zHxAcpuU5yjJvR_HNids_l85ee0_fjH_Ul7OfFg0e_TFNSwfGT"/>
 </div>
-<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
-<span class="material-symbols-outlined text-stone-500" data-icon="settings">settings</span>
+<span class="text-xl font-bold text-[#6B8E6B] dark:text-[#8BAB8B] tracking-widest">Nefes</span>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#6B8E6B]">settings</span>
 </button>
-</div>
 </header>
-<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
-<!-- 1. Dashboard: Sigarasız Süre -->
-<section class="flex flex-col items-center">
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto space-y-section-margin">
+<!-- Timer Section -->
+<section class="flex flex-col items-center justify-center py-4">
 <div class="relative w-64 h-64 flex items-center justify-center">
-<!-- Circular Progress Ring (Simplified with SVG) -->
-<svg class="absolute inset-0 w-full h-full transform -rotate-90">
-<circle class="text-surface-container" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
-<circle class="text-primary" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="200" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Circular Track -->
+<svg class="absolute w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-[#6B8E6B] drop-shadow-sm" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="691" stroke-linecap="round" stroke-width="12"></circle>
 </svg>
-<div class="text-center z-10">
-<h2 class="font-h2 text-h2 text-primary">12 Gün</h2>
-<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">08:42:15</p>
-<p class="font-label-sm text-label-sm text-primary font-bold mt-2">SİGARASIZ SÜRE</p>
+<!-- Inner Glow Surface -->
+<div class="w-48 h-48 rounded-full bg-white timer-glow flex flex-col items-center justify-center text-center p-4">
+<span class="font-h1 text-[#6B8E6B]">0 GÜN</span>
+<span class="font-h3 text-stone-400 mt-1">00:00:00</span>
+<div class="mt-2 px-3 py-1 bg-surface-container-low rounded-full text-[10px] font-bold text-[#6B8E6B] tracking-tighter">
+                        YENİ BAŞLANGIÇ
+                    </div>
 </div>
 </div>
 </section>
-<!-- 2. Health: Şu Anda Vücudunda Olanlar -->
-<section class="glass-card rounded-[24px] p-6 space-y-4">
-<div class="flex justify-between items-center">
-<h3 class="font-h3 text-h3 text-on-surface">Şu Anda Vücudunda Olanlar</h3>
-<span class="material-symbols-outlined text-primary" data-icon="health_and_safety" data-weight="fill" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
-</div>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<div class="bg-primary/10 p-2 rounded-full">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<div>
-<p class="font-body-md text-body-md font-bold text-on-surface">72 Saat Tamamlandı</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Vücudun tamamen nikotinden arındı, bronşlar gevşedi.</p>
-</div>
-</div>
-<div class="relative pl-12">
-<div class="absolute left-6 top-0 bottom-0 w-[2px] bg-outline-variant/30"></div>
-<div class="flex items-center gap-4">
-<div class="w-2 h-2 rounded-full bg-secondary absolute left-[21.5px] top-2 ring-4 ring-background"></div>
-<div class="flex-1">
-<div class="flex justify-between items-end mb-2">
-<p class="font-body-md text-body-md font-semibold text-secondary">Sıradaki: 2 Hafta</p>
-<p class="font-label-sm text-label-sm text-secondary">1 Gün 15 Saat kaldı</p>
-</div>
-<div class="h-2 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-secondary w-3/4 rounded-full"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p class="font-label-sm text-[11px] text-stone-400 leading-relaxed pt-2 border-t border-stone-50">
-                Bu bilgiler genel sağlık kilometre taşlarıdır. Bireysel iyileşme süreleri farklılık gösterebilir.
-            </p>
-</section>
-<!-- 3. Crisis Entry: Anlık Destek -->
+<!-- Health Section (Şu Anda Vücudunda Olanlar) -->
 <section class="space-y-4">
-<h3 class="font-h3 text-h3 text-on-surface px-1">Anlık Destek</h3>
-<div class="glass-card rounded-[24px] p-6 breeze-gradient">
-<p class="font-body-md text-body-md text-secondary font-medium mb-4">Bana bir cümleyle ne olduğunu yaz...</p>
-<div class="relative">
-<input class="w-full bg-white/60 border-none rounded-xl px-4 py-3 text-on-surface placeholder:text-stone-400 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Örn: Kahve içerken canım çok istedi..." type="text"/>
-<button class="absolute right-2 top-2 w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
-</button>
+<div class="flex items-center justify-between">
+<h2 class="font-h2 text-on-surface">Şu Anda Vücudunda Olanlar</h2>
+<span class="material-symbols-outlined text-primary-container">vital_signs</span>
 </div>
-<div class="flex flex-wrap gap-2 mt-4">
-<span class="px-3 py-1.5 bg-white/80 rounded-full text-label-sm font-medium text-on-surface-variant hover:bg-white cursor-pointer transition-colors shadow-sm border border-stone-100">Kahve içiyorum</span>
-<span class="px-3 py-1.5 bg-white/80 rounded-full text-label-sm font-medium text-on-surface-variant hover:bg-white cursor-pointer transition-colors shadow-sm border border-stone-100">Alkol alıyorum</span>
-<span class="px-3 py-1.5 bg-white/80 rounded-full text-label-sm font-medium text-on-surface-variant hover:bg-white cursor-pointer transition-colors shadow-sm border border-stone-100">Çok stresliyim</span>
+<div class="bg-white border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm space-y-6">
+<!-- Reached Milestone -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
 </div>
+<div class="w-0.5 h-12 bg-primary-container/20 mt-1"></div>
 </div>
-</section>
-<!-- 4. Motivation/Savings: Birikim & Hedef -->
-<section class="glass-card rounded-[24px] overflow-hidden">
-<div class="p-6 space-y-4">
-<div class="flex justify-between items-center">
-<h3 class="font-h3 text-h3 text-on-surface">Birikim &amp; Hedef</h3>
-<span class="material-symbols-outlined text-primary" data-icon="savings">savings</span>
-</div>
-<div class="flex items-center gap-4">
-<div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container flex-shrink-0">
-<img alt="Sony WH-1000XM5" class="w-full h-full object-cover" data-alt="professional studio product shot of high-end Sony noise-canceling headphones on a minimalist neutral pedestal with elegant soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbMXql2h69FWVdz2Q_Bip_6xH9K9lA7X_sIGex2CPsmHCKV4p5k_rDRtGwKddekobG8EkFtCRhq7iPLPipTho46jU9heTmzRmkoTQj3YFuCMLYSi1nSPR-TaC2jzrGQOGjK3AH_dHg0ujBciSTTJge9OUgU00kODbPYe_Al85819nClfdlQna8URSSeODZWeoN5Q0V8KSBBOApL5lqJQW0H39YtCFx0dEgRIDVM1Y2haaYHaL_6W-JB0YgdBDS1y4spWluJeNEusvu"/>
-</div>
-<div class="flex-1">
-<p class="font-body-md text-body-md font-bold text-on-surface">Sony WH-1000XM5</p>
-<p class="font-label-sm text-label-sm text-primary font-bold">12.500 TL</p>
+<div class="pt-1">
+<p class="font-h3 text-[#6B8E6B]">Sürece Başladın</p>
+<p class="font-body-md text-stone-500">Vücudun toksinlerden arınmaya hazır.</p>
 </div>
 </div>
-<div class="space-y-2">
-<div class="flex justify-between text-label-sm text-on-surface-variant font-medium">
-<span>Biriken: 2.500 TL</span>
-<span>%20</span>
+<!-- Next Milestone -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full border-2 border-[#6B8E6B] text-[#6B8E6B] flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">schedule</span>
 </div>
-<div class="h-3 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-primary w-1/5 rounded-full"></div>
 </div>
-<p class="font-label-sm text-[12px] text-primary bg-primary/5 p-2 rounded-lg text-center mt-2">
-                        Bu hızla devam edersen hedefine 11 gün içinde ulaşabilirsin.
-                    </p>
+<div class="pt-1">
+<div class="flex items-center justify-between w-full">
+<p class="font-h3 text-on-surface">20 Dakika</p>
+<span class="text-xs font-bold text-[#6B8E6B] bg-primary-fixed px-2 py-0.5 rounded">00:19:45</span>
+</div>
+<p class="font-body-md text-stone-500">Nabız ve kan basıncı normale döner.</p>
+<!-- Progress Bar -->
+<div class="mt-3 w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-[#6B8E6B] to-secondary w-1/12 h-full rounded-full"></div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<!-- 6. Daily Successes: Günlük Başarıların -->
+<!-- Savings Section (Birikim & Hedef) -->
 <section class="space-y-4">
-<h3 class="font-h3 text-h3 text-on-surface px-1">Günlük Başarıların</h3>
+<div class="flex items-center justify-between">
+<h2 class="font-h2 text-on-surface">Birikim &amp; Hedef</h2>
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+</div>
+<div class="bg-white border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">HEDEF ÜRÜN</label>
+<div class="font-h3 text-on-surface border-b border-surface-container pb-1">
+                            Kahve Makinesi
+                        </div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">TUTAR</label>
+<div class="font-h3 text-on-surface border-b border-surface-container pb-1">
+                            1.000 TL
+                        </div>
+</div>
+</div>
 <div class="space-y-3">
-<!-- Success Item 1 -->
-<div class="glass-card rounded-2xl p-4 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary" data-icon="coffee" data-weight="fill" style="font-variation-settings: 'FILL' 1;">coffee</span>
+<div class="flex justify-between items-end">
+<p class="font-body-md text-stone-500">Mevcut Birikim</p>
+<p class="font-h2 text-[#6B8E6B]">0 TL</p>
 </div>
-<div class="flex-1">
-<div class="flex justify-between">
-<p class="font-body-md text-body-md font-bold text-on-surface">Sabah Kahvesi</p>
-<span class="font-label-sm text-label-sm text-stone-400">08:40</span>
+<div class="w-full bg-surface-container h-3 rounded-full overflow-hidden">
+<div class="bg-[#6B8E6B] w-0 h-full"></div>
 </div>
-<p class="font-label-sm text-label-sm text-primary">Sigarasız tamamlandı</p>
-<p class="font-label-sm text-[12px] text-on-surface-variant mt-1 italic">İşe yarayan: 5 derin nefes</p>
+<div class="flex items-center gap-2 text-stone-400">
+<span class="material-symbols-outlined text-sm">event</span>
+<p class="text-[12px] font-medium italic">Tahmini tamamlama: 24 Mayıs 2024</p>
 </div>
 </div>
 </div>
 </section>
-<!-- 5. Recovery Entry: Tökezledin mi? -->
-<section class="pt-4">
-<button class="w-full glass-card rounded-[24px] p-6 flex items-center justify-between border-error/10 hover:bg-error/5 transition-all">
-<div class="flex items-center gap-4">
-<div class="bg-error/10 p-2 rounded-full">
-<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<!-- Recovery Card (Tökezledin mi?) -->
+<section>
+<div class="relative overflow-hidden breeze-gradient border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm group active:scale-95 transition-transform duration-200">
+<div class="flex justify-between items-start">
+<div class="space-y-2">
+<h3 class="font-h3 text-[#436444]">Tökezledin mi?</h3>
+<p class="font-body-md text-stone-600 pr-8">Sorun değil, hepimiz insanız. Buradan hemen toparlanalım.</p>
 </div>
-<div class="text-left">
-<p class="font-body-md text-body-md font-bold text-on-surface">Tökezledin mi?</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Bir sigara içtiysen buradan toparlan.</p>
+<div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-[#6B8E6B]">
+<span class="material-symbols-outlined text-2xl">healing</span>
 </div>
 </div>
-<span class="material-symbols-outlined text-stone-400" data-icon="chevron_right">chevron_right</span>
-</button>
+<div class="mt-4 flex items-center gap-2 text-[#6B8E6B] font-bold text-sm">
+                    SÜRECİ YENİLE <span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
 </section>
 </main>
 <!-- BottomNavBar Shell -->
-<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-2xl shadow-[0_-4px_20px_0px_rgba(0,0,0,0.04)] rounded-t-[24px] border-t border-white/20 flex justify-around items-center px-4 pt-3 pb-8">
-<a class="flex flex-col items-center justify-center text-[#6B8E6B] dark:text-[#8EAC8E] bg-[#6B8E6B]/10 rounded-xl px-3 py-1 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="home_app_logo" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home_app_logo</span>
-<span class="font-['Manrope'] text-[11px] font-medium mt-1">Ana Sayfa</span>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-white/80 dark:bg-stone-950/80 backdrop-blur-2xl rounded-t-[32px] border-t border-[#6B8E6B]/5 shadow-[0_-8px_30px_rgba(0,0,0,0.04)]">
+<!-- Tab: Ana Panel (Active) -->
+<a class="flex flex-col items-center justify-center text-[#6B8E6B] dark:text-[#8BAB8B] scale-110 transition-all duration-500 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-manrope text-[11px] font-medium tracking-wide">Ana Panel</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 transition-all hover:text-[#6B8E6B]" href="#">
-<span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span>
-<span class="font-['Manrope'] text-[11px] font-medium mt-1">Gelişim</span>
+<!-- Tab: Gelişim -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">insights</span>
+<span class="font-manrope text-[11px] font-medium tracking-wide">Gelişim</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 transition-all hover:text-[#6B8E6B]" href="#">
-<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
-<span class="font-['Manrope'] text-[11px] font-medium mt-1">Destek</span>
+<!-- Tab: Kriz Modu -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">emergency_home</span>
+<span class="font-manrope text-[11px] font-medium tracking-wide">Kriz Modu</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 transition-all hover:text-[#6B8E6B]" href="#">
-<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
-<span class="font-['Manrope'] text-[11px] font-medium mt-1">Günlük</span>
+<!-- Tab: Toparlanma -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">self_improvement</span>
+<span class="font-manrope text-[11px] font-medium tracking-wide">Toparlanma</span>
 </a>
 </nav>
 </body></html>

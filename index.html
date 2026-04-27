@@ -13,53 +13,53 @@
             theme: {
                 extend: {
                     "colors": {
-                        "error": "#ba1a1a",
-                        "secondary": "#3a6378",
-                        "tertiary": "#625b51",
-                        "secondary-fixed-dim": "#a2cce4",
-                        "on-error": "#ffffff",
-                        "tertiary-container": "#7b7469",
-                        "surface-tint": "#456646",
-                        "surface-bright": "#f8faf8",
-                        "inverse-primary": "#abd0a9",
-                        "outline-variant": "#c2c8be",
-                        "on-primary-container": "#f7fff2",
-                        "inverse-surface": "#2e3130",
-                        "outline": "#737970",
-                        "primary-fixed": "#c6edc4",
-                        "on-secondary-container": "#3e687c",
-                        "surface-container": "#eceeec",
-                        "surface-container-high": "#e6e9e7",
-                        "secondary-container": "#bbe6fe",
-                        "on-primary-fixed": "#012108",
                         "on-secondary": "#ffffff",
-                        "primary-container": "#5b7d5b",
-                        "error-container": "#ffdad6",
-                        "on-secondary-fixed": "#001e2b",
-                        "surface-container-highest": "#e1e3e1",
-                        "surface": "#f8faf8",
-                        "inverse-on-surface": "#eff1ef",
-                        "on-primary": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "on-tertiary-fixed": "#1f1b13",
-                        "on-tertiary-fixed-variant": "#4c463c",
+                        "outline-variant": "#c2c8be",
                         "surface-container-lowest": "#ffffff",
                         "primary": "#436444",
+                        "surface": "#f8faf8",
+                        "secondary-container": "#bbe6fe",
                         "on-tertiary": "#ffffff",
-                        "on-surface-variant": "#424841",
+                        "on-tertiary-fixed-variant": "#4c463c",
+                        "secondary-fixed": "#c0e8ff",
+                        "tertiary-fixed-dim": "#cfc5b9",
+                        "inverse-surface": "#2e3130",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#abd0a9",
+                        "surface-bright": "#f8faf8",
+                        "on-secondary-fixed-variant": "#1f4c5f",
                         "tertiary-fixed": "#ebe1d4",
+                        "on-surface-variant": "#424841",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#c6edc4",
+                        "on-background": "#191c1b",
+                        "surface-variant": "#e1e3e1",
+                        "surface-tint": "#456646",
+                        "on-secondary-fixed": "#001e2b",
+                        "background": "#f8faf8",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e3e1",
+                        "secondary": "#3a6378",
                         "surface-container-low": "#f2f4f2",
                         "on-surface": "#191c1b",
-                        "background": "#f8faf8",
-                        "on-primary-fixed-variant": "#2e4e30",
-                        "surface-dim": "#d8dad9",
-                        "secondary-fixed": "#c0e8ff",
-                        "on-secondary-fixed-variant": "#1f4c5f",
-                        "tertiary-fixed-dim": "#cfc5b9",
+                        "outline": "#737970",
                         "primary-fixed-dim": "#abd0a9",
+                        "primary-container": "#5b7d5b",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#1f1b13",
+                        "surface-dim": "#d8dad9",
+                        "secondary-fixed-dim": "#a2cce4",
+                        "tertiary": "#625b51",
+                        "tertiary-container": "#7b7469",
+                        "on-secondary-container": "#3e687c",
+                        "on-primary-fixed-variant": "#2e4e30",
+                        "on-primary-container": "#f7fff2",
+                        "surface-container-high": "#e6e9e7",
+                        "surface-container": "#eceeec",
                         "on-tertiary-container": "#fffbff",
-                        "surface-variant": "#e1e3e1",
-                        "on-background": "#191c1b"
+                        "inverse-on-surface": "#eff1ef",
+                        "on-primary-fixed": "#012108"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -68,37 +68,46 @@
                         "full": "9999px"
                     },
                     "spacing": {
-                        "section-margin": "40px",
-                        "container-padding": "24px",
-                        "unit": "8px",
                         "card-gap": "20px",
-                        "gutter": "16px"
+                        "unit": "8px",
+                        "section-margin": "40px",
+                        "gutter": "16px",
+                        "container-padding": "24px"
                     },
                     "fontFamily": {
-                        "h1": ["Manrope"],
                         "h3": ["Manrope"],
+                        "h1": ["Manrope"],
                         "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
                         "label-sm": ["Manrope"],
-                        "h2": ["Manrope"],
-                        "body-lg": ["Manrope"]
+                        "h2": ["Manrope"]
                     },
                     "fontSize": {
-                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                         "h3": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                         "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
                         "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600"}],
-                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
                     }
                 },
             },
         }
     </script>
 <style>
-        body { background-color: #f8faf8; font-family: 'Manrope', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .breeze-gradient { background: linear-gradient(135deg, #f0f4f0 0%, #ffffff 100%); }
-        .timer-glow { box-shadow: 0 0 40px rgba(107, 142, 107, 0.1); }
+        body { font-family: 'Manrope', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(225, 227, 225, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .breeze-gradient {
+            background: linear-gradient(135deg, #f0f4f0 0%, #e6f0ff 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
     </style>
 <style>
     body {
@@ -106,154 +115,116 @@
     }
   </style>
   </head>
-<body class="text-on-surface antialiased">
-<!-- TopAppBar Shell -->
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl border-b border-[#6B8E6B]/10 shadow-sm font-manrope antialiased tracking-tight">
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl dark:bg-neutral-900/80 border-b border-neutral-100/50 dark:border-neutral-800/50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-screen-xl mx-auto">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
-<img alt="Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a calm smiling man in a soft green sweater against a neutral bright studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVQQyNC5isUZRQ2GTzYniPB4EW4Xi0HGYNaUk6DeIm-J1yNJ33Ftsmwd8Sk_TtW1XE-JAi0goFBOGohUlCeMvG7MA1HVvL7HFU3tAiLE0b93qnRQsQKTc4BtWoZZ1oQ-gilwdJ6bFKALwAmwY3cYFeBxwGxb6iRZQvOKUbwCNdfVXCr6sDLqisVNlZpUFlTFkonZG_HnNfCGOSnQ-rzTcZbXNlH0zHxAcpuU5yjJvR_HNids_l85ee0_fjH_Ul7OfFg0e_TFNSwfGT"/>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="minimalist avatar of a person with a serene expression against a soft green background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpb3cKWNHsx_Z7xAC426TV6EQUderjEW-32dtyJjDWml4UcQUkqTXMprppipJLzq8Wuxen1QXXb5Mifslfb62Y-U8oMPBvmL3SVPIvKJ3IT_cvHyUkl0m-Cva3Ihiwm6vv-5kTKNJGuOMjOzWAL3p6O1XzdaKrflnFuzc_o04lMvxBBsCoMYc4bwHX6aUnyWdsvIsieTcJ3T0XcMNx7trqXVoQhmWGqy1pJE91E3D7Fs9g9xhKGxipTrPJBqqF2-KLA_o3xoa8bkmF"/>
 </div>
-<span class="text-xl font-bold text-[#6B8E6B] dark:text-[#8BAB8B] tracking-widest">Nefes</span>
+<h1 class="text-xl font-extrabold tracking-tighter text-[#6B8E6B] dark:text-[#8EAD8E]">Nefes</h1>
 </div>
-<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
-<span class="material-symbols-outlined text-[#6B8E6B]">settings</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-[#6B8E6B] hover:bg-neutral-50/50 transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
 </button>
+</div>
 </header>
-<main class="pt-24 pb-32 px-6 max-w-lg mx-auto space-y-section-margin">
-<!-- Timer Section -->
-<section class="flex flex-col items-center justify-center py-4">
-<div class="relative w-64 h-64 flex items-center justify-center">
-<!-- Circular Track -->
-<svg class="absolute w-full h-full transform -rotate-90">
-<circle class="text-surface-container-highest" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-[#6B8E6B] drop-shadow-sm" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="691" stroke-linecap="round" stroke-width="12"></circle>
-</svg>
-<!-- Inner Glow Surface -->
-<div class="w-48 h-48 rounded-full bg-white timer-glow flex flex-col items-center justify-center text-center p-4">
-<span class="font-h1 text-[#6B8E6B]">0 GÜN</span>
-<span class="font-h3 text-stone-400 mt-1">00:00:00</span>
-<div class="mt-2 px-3 py-1 bg-surface-container-low rounded-full text-[10px] font-bold text-[#6B8E6B] tracking-tighter">
-                        YENİ BAŞLANGIÇ
-                    </div>
+<main class="pt-24 px-container-padding max-w-md mx-auto space-y-card-gap">
+<!-- Quit Timer -->
+<section class="text-center space-y-2 py-unit">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Özgürlük Süren</p>
+<div class="flex justify-center items-baseline gap-1">
+<span class="font-h1 text-[48px] text-primary">0</span>
+<span class="font-h3 text-h3 text-primary/60">gün</span>
 </div>
-</div>
+<div class="font-h2 text-h2 text-primary-container tracking-widest tabular-nums">00:00:00</div>
 </section>
-<!-- Health Section (Şu Anda Vücudunda Olanlar) -->
-<section class="space-y-4">
-<div class="flex items-center justify-between">
-<h2 class="font-h2 text-on-surface">Şu Anda Vücudunda Olanlar</h2>
-<span class="material-symbols-outlined text-primary-container">vital_signs</span>
-</div>
-<div class="bg-white border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm space-y-6">
-<!-- Reached Milestone -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
-</div>
-<div class="w-0.5 h-12 bg-primary-container/20 mt-1"></div>
-</div>
-<div class="pt-1">
-<p class="font-h3 text-[#6B8E6B]">Sürece Başladın</p>
-<p class="font-body-md text-stone-500">Vücudun toksinlerden arınmaya hazır.</p>
-</div>
-</div>
-<!-- Next Milestone -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full border-2 border-[#6B8E6B] text-[#6B8E6B] flex items-center justify-center">
-<span class="material-symbols-outlined text-sm">schedule</span>
-</div>
-</div>
-<div class="pt-1">
-<div class="flex items-center justify-between w-full">
-<p class="font-h3 text-on-surface">20 Dakika</p>
-<span class="text-xs font-bold text-[#6B8E6B] bg-primary-fixed px-2 py-0.5 rounded">00:19:45</span>
-</div>
-<p class="font-body-md text-stone-500">Nabız ve kan basıncı normale döner.</p>
-<!-- Progress Bar -->
-<div class="mt-3 w-full bg-surface-container h-2 rounded-full overflow-hidden">
-<div class="bg-gradient-to-r from-[#6B8E6B] to-secondary w-1/12 h-full rounded-full"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Savings Section (Birikim & Hedef) -->
-<section class="space-y-4">
-<div class="flex items-center justify-between">
-<h2 class="font-h2 text-on-surface">Birikim &amp; Hedef</h2>
-<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
-</div>
-<div class="bg-white border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm space-y-6">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-1">
-<label class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">HEDEF ÜRÜN</label>
-<div class="font-h3 text-on-surface border-b border-surface-container pb-1">
-                            Kahve Makinesi
-                        </div>
-</div>
-<div class="space-y-1">
-<label class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">TUTAR</label>
-<div class="font-h3 text-on-surface border-b border-surface-container pb-1">
-                            1.000 TL
-                        </div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="flex justify-between items-end">
-<p class="font-body-md text-stone-500">Mevcut Birikim</p>
-<p class="font-h2 text-[#6B8E6B]">0 TL</p>
-</div>
-<div class="w-full bg-surface-container h-3 rounded-full overflow-hidden">
-<div class="bg-[#6B8E6B] w-0 h-full"></div>
-</div>
-<div class="flex items-center gap-2 text-stone-400">
-<span class="material-symbols-outlined text-sm">event</span>
-<p class="text-[12px] font-medium italic">Tahmini tamamlama: 24 Mayıs 2024</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Recovery Card (Tökezledin mi?) -->
-<section>
-<div class="relative overflow-hidden breeze-gradient border border-[#6B8E6B]/10 rounded-3xl p-6 shadow-sm group active:scale-95 transition-transform duration-200">
+<!-- Health Milestone Card -->
+<div class="glass-card rounded-xl p-5 space-y-4">
 <div class="flex justify-between items-start">
+<div class="space-y-1">
+<h3 class="font-h3 text-h3 text-on-surface">Sağlık Durumu</h3>
+<p class="font-label-sm text-label-sm text-outline">Sürece Başladın</p>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-label-sm text-[11px] uppercase">Yeni Başlangıç</div>
+</div>
 <div class="space-y-2">
-<h3 class="font-h3 text-[#436444]">Tökezledin mi?</h3>
-<p class="font-body-md text-stone-600 pr-8">Sorun değil, hepimiz insanız. Buradan hemen toparlanalım.</p>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Sıradaki: 20 Dakika</span>
+<span class="text-primary font-bold">0%</span>
 </div>
-<div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-[#6B8E6B]">
-<span class="material-symbols-outlined text-2xl">healing</span>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[2%] rounded-full transition-all duration-1000"></div>
+</div>
+<p class="font-label-sm text-[12px] text-outline-variant italic text-center">Kan basıncın normale dönmeye hazırlanıyor.</p>
 </div>
 </div>
-<div class="mt-4 flex items-center gap-2 text-[#6B8E6B] font-bold text-sm">
-                    SÜRECİ YENİLE <span class="material-symbols-outlined">arrow_forward</span>
+<!-- Dynamic Savings Goal -->
+<div class="glass-card rounded-xl p-5 breeze-gradient">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">savings</span>
+<h3 class="font-h3 text-h3 text-on-surface">Tasarruf Hedefi</h3>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="space-y-1">
+<label class="font-label-sm text-[11px] text-outline uppercase ml-1">Hedef Ürün Adı</label>
+<input class="w-full bg-white/50 border-none rounded-lg font-body-md text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-outline-variant" placeholder="Örn: Yeni Ayakkabı" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-[11px] text-outline uppercase ml-1">Fiyat (TL)</label>
+<input class="w-full bg-white/50 border-none rounded-lg font-body-md text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-outline-variant" placeholder="0.00" type="number"/>
 </div>
 </div>
-</section>
+<div class="bg-white/40 rounded-lg p-3 border border-white/60">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-sm text-on-surface-variant">Hedefe kalan süre:</span>
+<span class="font-h3 text-h3 text-primary">-- gün</span>
+</div>
+<p class="font-label-sm text-[12px] text-outline-variant mt-1 leading-tight">Günlük 80 TL tasarruf üzerinden hesaplanmıştır.</p>
+</div>
+</div>
+<!-- Crisis Entry -->
+<div class="glass-card rounded-xl p-5 border-l-4 border-error/20">
+<h3 class="font-h3 text-h3 text-on-surface mb-3">Şu an ne hissediyorsun?</h3>
+<div class="relative mb-4">
+<textarea class="w-full bg-surface-container-low border-none rounded-xl font-body-md text-sm p-4 focus:ring-2 focus:ring-error/10 resize-none placeholder:text-outline-variant" placeholder="Bana bir cümleyle ne olduğunu yaz..." rows="2"></textarea>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[12px] hover:bg-surface-container-highest transition-colors">Stresliyim</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[12px] hover:bg-surface-container-highest transition-colors">Canım sıkıldı</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[12px] hover:bg-surface-container-highest transition-colors">Kahve içtim</button>
+</div>
+</div>
+<!-- Recovery Entry -->
+<button class="w-full group bg-white border-2 border-dashed border-outline-variant hover:border-primary/40 hover:bg-primary/5 transition-all p-6 rounded-2xl flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-3xl">rebase_edit</span>
+<div class="text-center">
+<p class="font-h3 text-h3 text-on-surface-variant group-hover:text-primary transition-colors">Tökezledin mi?</p>
+<p class="font-body-md text-sm text-outline">Buradan toparlan ve yeniden başla</p>
+</div>
+</button>
 </main>
-<!-- BottomNavBar Shell -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-white/80 dark:bg-stone-950/80 backdrop-blur-2xl rounded-t-[32px] border-t border-[#6B8E6B]/5 shadow-[0_-8px_30px_rgba(0,0,0,0.04)]">
-<!-- Tab: Ana Panel (Active) -->
-<a class="flex flex-col items-center justify-center text-[#6B8E6B] dark:text-[#8BAB8B] scale-110 transition-all duration-500 ease-out" href="#">
-<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-<span class="font-manrope text-[11px] font-medium tracking-wide">Ana Panel</span>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-2xl dark:bg-neutral-900/80 border-t border-neutral-100 dark:border-neutral-800 shadow-[0_-4px_30px_rgba(0,0,0,0.03)] rounded-t-2xl z-50">
+<div class="flex justify-around items-center px-4 pt-3 pb-8">
+<!-- Active Tab: Ana Panel -->
+<a class="flex flex-col items-center justify-center gap-1 text-[#6B8E6B] dark:text-[#8EAD8E] scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest">Ana Panel</span>
 </a>
-<!-- Tab: Gelişim -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
-<span class="material-symbols-outlined mb-1">insights</span>
-<span class="font-manrope text-[11px] font-medium tracking-wide">Gelişim</span>
+<a class="flex flex-col items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest">Gelişim</span>
 </a>
-<!-- Tab: Kriz Modu -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
-<span class="material-symbols-outlined mb-1">emergency_home</span>
-<span class="font-manrope text-[11px] font-medium tracking-wide">Kriz Modu</span>
+<a class="flex flex-col items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined">emergency_home</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest">Kriz Modu</span>
 </a>
-<!-- Tab: Toparlanma -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 hover:text-[#6B8E6B] transition-colors" href="#">
-<span class="material-symbols-outlined mb-1">self_improvement</span>
-<span class="font-manrope text-[11px] font-medium tracking-wide">Toparlanma</span>
+<a class="flex flex-col items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600 hover:text-[#6B8E6B] transition-colors" href="#">
+<span class="material-symbols-outlined">rebase_edit</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest">Toparlanma</span>
 </a>
+</div>
 </nav>
 </body></html>

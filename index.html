@@ -6,7 +6,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -154,7 +153,6 @@
 <p class="text-xs font-medium text-slate-400 mt-1 uppercase tracking-widest">Bilge Rehberiniz</p>
 </div>
 <nav class="flex-1 space-y-2 px-3">
-<!-- Active State: Dashboard -->
 <a class="bg-[#F7F9F8] text-[#2D5A61] border-r-4 border-[#2D5A61] px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold transition-all scale-100 active:scale-95 duration-200" href="#">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span>Dashboard</span>
@@ -186,12 +184,12 @@
 <!-- Main Content Canvas -->
 <main class="lg:ml-64 pt-20 px-6 pb-24 lg:pb-8 min-h-screen">
 <div class="max-w-6xl mx-auto space-y-stack-lg">
-<!-- Dashboard Section -->
+<!-- Dashboard Header -->
 <section class="space-y-stack-md" id="dashboard">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div>
 <h2 class="font-headline-xl text-headline-xl text-primary">Merhaba, Elif</h2>
-<p class="font-body-lg text-body-lg text-outline">Canın sigara çektiği anda ne yapacağını bilen uygulama.</p>
+<p class="font-body-lg text-body-lg text-outline">Canın çekerse hızlı destek burada.</p>
 </div>
 <div class="bg-tertiary-fixed text-on-tertiary-fixed px-6 py-3 rounded-xl flex items-center gap-3 shadow-sm">
 <span class="material-symbols-outlined" data-icon="timer">timer</span>
@@ -203,36 +201,42 @@
 </div>
 <!-- Bento Grid Layout -->
 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter mt-8">
-<!-- Progress Card -->
-<div class="md:col-span-2 lg:col-span-2 bento-card bg-white p-6 rounded-xl border border-[#E0E5E4] shadow-[40px_0_40px_rgba(45,90,97,0.04)] flex flex-col justify-between min-h-[240px]">
+<!-- Health Accuracy Card -->
+<div class="md:col-span-2 lg:col-span-2 bento-card bg-white p-6 rounded-xl border border-[#E0E5E4] shadow-[40px_0_40px_rgba(45,90,97,0.04)] flex flex-col justify-between min-h-[260px]">
 <div class="flex justify-between items-start">
-<span class="bg-secondary-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">İyileşme</span>
-<span class="material-symbols-outlined text-primary" data-icon="auto_graph">auto_graph</span>
+<span class="bg-secondary-container text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Şu Anda Vücudunda Olanlar</span>
+<span class="material-symbols-outlined text-primary" data-icon="favorite">favorite</span>
 </div>
-<div class="mt-4">
-<h3 class="font-headline-md text-headline-md text-primary">Vücudunuz Temizleniyor</h3>
-<p class="text-body-md text-outline mt-2">Karbonmonoksit seviyeniz normale döndü. Akciğer kapasiteniz artıyor.</p>
+<div class="mt-4 space-y-3">
+<p class="text-body-md text-primary font-semibold">72 saat eşiğini geçtin. Nefes almak biraz daha kolay hissedilebilir.</p>
+<p class="text-sm text-outline">Sıradaki eşik: 2 hafta sonra dolaşım iyileşmesi görülmeye başlanabilir.</p>
+<p class="text-[10px] text-outline italic opacity-75 mt-4">Bu bilgiler genel sağlık kilometre taşlarıdır. Her vücut farklı hızda ilerler.</p>
 </div>
 <div class="mt-6 w-full bg-surface-container h-2 rounded-full overflow-hidden">
-<div class="bg-primary h-full w-3/4 rounded-full"></div>
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
 </div>
 </div>
-<!-- Financial Motivation -->
-<div class="bento-card bg-white p-6 rounded-xl border border-[#E0E5E4] shadow-[40px_0_40px_rgba(45,90,97,0.04)] flex flex-col justify-center items-center text-center">
-<div class="w-12 h-12 bg-secondary-fixed text-primary rounded-full flex items-center justify-center mb-4">
-<span class="material-symbols-outlined" data-icon="payments">payments</span>
-</div>
+<!-- Savings Projection -->
+<div class="bento-card bg-white p-6 rounded-xl border border-[#E0E5E4] shadow-[40px_0_40px_rgba(45,90,97,0.04)] flex flex-col">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
 <p class="text-label-sm font-label-sm text-outline uppercase tracking-widest">TASARRUF</p>
-<p class="text-3xl font-bold text-primary mt-1">₺1,420</p>
-<p class="text-xs text-outline mt-2">Bu parayla sevdiğiniz bir hobinize yatırım yapabilirsiniz.</p>
 </div>
-<!-- Health Goal -->
-<div class="bento-card bg-primary-container text-on-primary-container p-6 rounded-xl shadow-lg flex flex-col justify-between">
-<span class="material-symbols-outlined text-3xl" data-icon="monitor_heart">monitor_heart</span>
-<div>
-<p class="font-bold text-lg leading-tight">Kalp Krizi Riski</p>
-<p class="text-sm opacity-80 mt-1">%50 azaldı</p>
+<div class="space-y-2">
+<div class="flex justify-between text-sm"><span class="text-outline">Bugün:</span> <span class="font-bold text-primary">₺60</span></div>
+<div class="flex justify-between text-sm"><span class="text-outline">Haftalık:</span> <span class="font-bold text-primary">₺420</span></div>
+<div class="flex justify-between text-sm"><span class="text-outline">Toplam:</span> <span class="text-2xl font-bold text-primary">₺1,420</span></div>
 </div>
+<p class="text-[11px] text-secondary font-medium mt-4 leading-snug">Bu hızla devam edersen 30 günde kendine küçük bir ödül alabilirsin!</p>
+</div>
+<!-- Quick Support CTA -->
+<div class="bento-card bg-primary-container text-on-primary-container p-6 rounded-xl shadow-lg flex flex-col justify-between cursor-pointer">
+<div class="space-y-1">
+<span class="material-symbols-outlined text-3xl" data-icon="bolt">bolt</span>
+<p class="font-bold text-lg leading-tight">Hızlı Destek</p>
+<p class="text-sm opacity-80 mt-1">Zorlanıyor musun?</p>
+</div>
+<button class="bg-white/20 hover:bg-white/30 transition-colors w-full py-2 rounded-lg text-xs font-bold uppercase tracking-wider mt-4">Kriz Modunu Aç</button>
 </div>
 <!-- Daily Wisdom (Horizontal Card) -->
 <div class="md:col-span-3 lg:col-span-4 bento-card bg-white rounded-xl border border-[#E0E5E4] overflow-hidden flex flex-col md:flex-row">
@@ -240,25 +244,25 @@
 <img alt="Meditation atmosphere" class="w-full h-full object-cover" data-alt="Calm morning scene with soft sunlight hitting a zen meditation space with plants and textured walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm2Vxfa-T_QIVCZwwo-JFVzNfzasWdOcmUKhUQmuljda96bw-RHzAdQV_CqnfhOgvX8rIY3SLHNCWzO2uXtIbFxUAHRjOK-4jS16ie62baYRqL81sltL1iilTUFh5OlKhZQ-k0ibOFQZNbkgS0vYw53jJah2vIDsQr_bkisOhZ5H9685J4rb_Zk2ecocY5FBDkWxBI698oBolgh9QM8VwWGacvUCCLDfuyVBE9F0kDnDLxy1N9laRLs9oVmxVrcdA0P1zflfg9HBU"/>
 </div>
 <div class="p-8 flex flex-col justify-center flex-1">
-<h4 class="text-label-sm font-label-sm text-primary uppercase tracking-widest mb-2">Günün Bilgeliği</h4>
+<h4 class="text-label-sm font-label-sm text-primary uppercase tracking-widest mb-2">Günün Desteği</h4>
 <p class="font-headline-md text-headline-md italic text-primary">"Kriz geçicidir, elde ettiğin sağlık kalıcı."</p>
 <p class="mt-4 text-outline body-md italic">— Nefes Alan Yol Rehberi</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Kriz Modu Section (Hidden by default in actual app logic, but shown for prototype) -->
+<!-- Kriz Araçları Section -->
 <section class="space-y-stack-md pt-section-gap" id="kriz-modu">
 <div class="text-center max-w-2xl mx-auto">
-<span class="material-symbols-outlined text-tertiary-container text-5xl mb-4" data-icon="emergency_home">emergency_home</span>
-<h2 class="font-headline-xl text-headline-xl text-primary">Kriz Anındasınız</h2>
-<p class="text-body-lg text-outline mt-2">Derin bir nefes alın. Sadece 3 dakika sürecek. Yanınızdayız.</p>
+<span class="material-symbols-outlined text-secondary text-5xl mb-4" data-icon="self_improvement">self_improvement</span>
+<h2 class="font-headline-xl text-headline-xl text-primary">Kriz Araçları</h2>
+<p class="text-body-lg text-outline mt-2">Vücudun toparlanıyor. Bu kısa süreli isteği yönetmek senin elinde.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-12">
-<div class="bg-white p-8 rounded-xl border-2 border-primary shadow-lg text-center flex flex-col items-center">
+<div class="bg-white p-8 rounded-xl border border-outline-variant shadow-sm text-center flex flex-col items-center">
 <span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="air">air</span>
 <h3 class="font-headline-md text-headline-md mb-2">Hemen Rahatla</h3>
-<p class="text-outline mb-8">Odaklanmış nefes egzersizi ile nabzınızı düşürün.</p>
+<p class="text-outline mb-8">Nefes egzersizi ile nabzınızı dengelenmeye başlamış olabilir.</p>
 <button class="bg-primary text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all w-full md:w-auto">Egzersizi Başlat</button>
 </div>
 <div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant text-center flex flex-col items-center">
@@ -299,7 +303,7 @@
 <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
 <div class="max-w-md">
 <h2 class="font-headline-xl text-headline-xl text-primary">Bugün Harikaydın!</h2>
-<p class="text-body-lg text-outline mt-2">6 krizin hepsini başarıyla atlattın. Zihnindeki bağlar zayıflıyor.</p>
+<p class="text-body-lg text-outline mt-2">Bugün karşılaştığın zor anları başarıyla yönettin. Zihnindeki bağlar zayıflıyor.</p>
 <button class="mt-8 bg-primary text-white px-8 py-3 rounded-full font-bold">Günü Tamamla</button>
 </div>
 <div class="w-64 h-64 bg-white/60 backdrop-blur rounded-full flex items-center justify-center shadow-inner border border-white">
@@ -309,7 +313,6 @@
 </div>
 </div>
 </div>
-<!-- Decorative element -->
 <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
 </div>
 <div class="mt-12">
@@ -321,7 +324,7 @@
 </div>
 <div class="flex-1">
 <p class="font-bold text-primary">Sabah Kahvesi Krizi</p>
-<p class="text-sm text-outline">Derin nefesle aşıldı • 08:45</p>
+<p class="text-sm text-outline">Derin nefesle sakince aşıldı • 08:45</p>
 </div>
 <span class="text-secondary font-bold">+10 Puan</span>
 </div>
@@ -331,7 +334,7 @@
 </div>
 <div class="flex-1">
 <p class="font-bold text-primary">Öğle Yemeği Sonrası</p>
-<p class="text-sm text-outline">Yürüyüşle aşıldı • 13:20</p>
+<p class="text-sm text-outline">Kısa bir yürüyüşle yönetildi • 13:20</p>
 </div>
 <span class="text-secondary font-bold">+10 Puan</span>
 </div>
@@ -359,7 +362,7 @@
 <span class="text-[10px] uppercase font-bold">Toparlanma</span>
 </a>
 </nav>
-<!-- Contextual FAB (Only for main screens) -->
+<!-- Contextual FAB -->
 <button class="fixed right-6 bottom-20 lg:bottom-10 bg-[#2D5A61] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-all z-50">
 <span class="material-symbols-outlined text-2xl" data-icon="chat_bubble">chat_bubble</span>
 </button>

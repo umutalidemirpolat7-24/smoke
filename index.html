@@ -129,18 +129,26 @@
             background-color: #436444;
             color: white;
             border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(67, 100, 68, 0.3);
         }
         .calendar-day.past {
             background-color: #abd0a9;
             color: #012108;
             border-radius: 9999px;
         }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
     </style>
 </head>
 <body class="font-body-md text-on-surface">
-<!-- Settings Overlay (Hidden by default) -->
+<!-- Settings Overlay -->
 <div class="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm hidden transition-all" id="settings-overlay">
-<div class="absolute bottom-0 left-0 w-full bg-white rounded-t-3xl p-8 space-y-6 animate-slide-up">
+<div class="absolute bottom-0 left-0 w-full bg-white rounded-t-3xl p-8 space-y-6">
 <div class="flex justify-between items-center">
 <h2 class="font-h2 text-h2 text-on-surface">Ayarlar</h2>
 <button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center" onclick="toggleSettings()">
@@ -150,7 +158,11 @@
 <div class="space-y-4">
 <div class="relative">
 <label class="absolute -top-2 left-3 px-1 bg-white text-[10px] font-bold text-primary tracking-wider uppercase">Günlük Sigara Fiyatı (TL)</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-body-md focus:ring-2 focus:ring-primary/20" id="daily-cost" oninput="calculateSavings()" type="number" value="120"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-body-md focus:ring-2 focus:ring-primary/20" id="daily-cost" oninput="updateAppState()" type="number" value="120"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-white text-[10px] font-bold text-primary tracking-wider uppercase">Bırakma Sebebim</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 text-body-md focus:ring-2 focus:ring-primary/20" id="motivation-input" oninput="updateAppState()" placeholder="Örn: Sağlığım ve çocuklarım için..." type="text" value="Sağlığım ve geleceğim için."/>
 </div>
 </div>
 <button class="w-full py-4 bg-primary text-on-primary rounded-2xl font-bold" onclick="toggleSettings()">Kaydet ve Kapat</button>
@@ -171,13 +183,18 @@
 <!-- Main Views Container -->
 <main class="pt-24 pb-32 px-container-padding max-w-md mx-auto">
 <!-- 1. Ana Panel View -->
-<section class="view-section active space-y-section-margin" id="view-ana-panel">
+<section class="view-section active space-y-6" id="view-ana-panel">
+<!-- Motivation Header -->
+<div class="bg-primary/5 rounded-2xl p-4 border border-primary/10">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">NEDEN BIRAKIYORUM?</p>
+<p class="text-body-md font-semibold text-on-surface" id="motivation-display">Sağlığım ve geleceğim için.</p>
+</div>
 <!-- Hero Section -->
 <div class="relative overflow-hidden rounded-3xl breeze-gradient p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#6B8E6B]/10">
 <div class="relative z-10 flex flex-col items-center text-center">
 <span class="text-label-sm font-label-sm text-primary uppercase tracking-widest mb-2">SİGARASIZ SÜRE</span>
-<h1 class="font-h1 text-h1 text-on-surface mb-2">0 Gün</h1>
-<div class="font-h2 text-h2 text-primary font-mono tracking-widest">00:00:00</div>
+<h1 class="font-h1 text-h1 text-on-surface mb-2" id="hero-days">0 Gün</h1>
+<div class="font-h2 text-h2 text-primary font-mono tracking-widest" id="hero-timer">00:00:00</div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-4 opacity-80">Yeni bir başlangıç, her nefes bir zafer.</p>
 </div>
 </div>
@@ -186,17 +203,26 @@
 <!-- Health Card -->
 <div class="glass-card rounded-3xl p-6 shadow-sm">
 <div class="flex justify-between items-start mb-4">
-<span class="font-h3 text-h3 text-on-surface">Şu Anda Vücudunda Olanlar</span>
+<span class="font-h3 text-h3 text-on-surface">Vücudunda Neler Oluyor?</span>
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
 </div>
-<div class="space-y-4">
+<div class="space-y-4" id="health-updates">
 <div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined">check_circle</span>
+<div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm">check_circle</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-primary mb-0.5">TAMAMLANDI</p>
-<p class="font-body-md text-body-md font-semibold">20 Dakika: Kan basıncı normale döner.</p>
+<p class="font-label-sm text-[10px] text-primary mb-0.5">TAMAMLANDI</p>
+<p class="text-sm font-medium">20 Dakika: Kan basıncı normale döner.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-outline shrink-0">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<div>
+<p class="font-label-sm text-[10px] text-outline mb-0.5">YAKLAŞAN</p>
+<p class="text-sm font-medium">8 Saat: Kandaki oksijen seviyesi normale döner.</p>
 </div>
 </div>
 </div>
@@ -210,19 +236,19 @@
 <div class="space-y-4">
 <div class="relative">
 <label class="absolute -top-2 left-3 px-1 bg-white text-[10px] font-bold text-primary tracking-wider uppercase">HEDEF ÜRÜN ADI</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-body-md focus:ring-2 focus:ring-primary/20 transition-all" id="goal-name" placeholder="Örn: Yeni Ayakkabı" type="text"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-body-md focus:ring-2 focus:ring-primary/20 transition-all" id="goal-name" oninput="updateAppState()" placeholder="Örn: Yeni Ayakkabı" type="text"/>
 </div>
 <div class="relative">
 <label class="absolute -top-2 left-3 px-1 bg-white text-[10px] font-bold text-primary tracking-wider uppercase">HEDEF FİYAT (TL)</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-body-md focus:ring-2 focus:ring-primary/20 transition-all" id="goal-price" oninput="calculateSavings()" placeholder="0" type="number"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-body-md focus:ring-2 focus:ring-primary/20 transition-all" id="goal-price" oninput="updateAppState()" placeholder="0" type="number"/>
 </div>
 </div>
 <div class="pt-4 border-t border-primary/5 flex items-end justify-between">
 <div>
-<p class="text-label-sm text-on-surface-variant" id="daily-info-label">Kalan Gün (120 TL/gün)</p>
-<p class="text-h2 font-h2 text-primary" id="remaining-days-text">0 Gün</p>
+<p class="text-[11px] font-bold text-primary uppercase tracking-tight" id="savings-formula">Tasarruf: 0 TL</p>
+<p class="text-h2 font-h2 text-primary" id="remaining-days-text">0 Gün Kalan</p>
 </div>
-<div class="w-12 h-12 rounded-full border-4 border-surface-container-high border-t-primary flex items-center justify-center text-[10px] font-bold" id="progress-circle">%0</div>
+<div class="w-14 h-14 rounded-full border-4 border-surface-container-high border-t-primary flex items-center justify-center text-[12px] font-bold" id="progress-circle">%0</div>
 </div>
 </div>
 </div>
@@ -240,13 +266,13 @@
 <!-- 2. Gelişim View -->
 <section class="view-section space-y-10" id="view-gelisim">
 <div class="space-y-2">
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">YOLCULUK BAŞLIYOR</span>
-<h2 class="font-h1 text-h1 text-on-surface">0. Gün: Karar Anı</h2>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">YOLCULUK TAKİBİ</span>
+<h2 class="font-h1 text-h1 text-on-surface" id="progress-header">0. Gün: Karar Anı</h2>
 </div>
 <div class="glass-card p-6 rounded-3xl bg-white shadow-sm relative overflow-hidden">
 <div class="flex flex-col gap-1">
 <div class="flex items-end gap-2">
-<span class="text-4xl font-extrabold text-primary tracking-tight">0</span>
+<span class="text-4xl font-extrabold text-primary tracking-tight" id="stats-savings">0</span>
 <span class="text-xl font-bold text-primary mb-1">TL</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant">Toplam Tasarruf</p>
@@ -254,92 +280,99 @@
 <div class="mt-6 pt-6 border-t border-primary/5 grid grid-cols-2 gap-4">
 <div class="flex flex-col">
 <span class="text-xs font-semibold text-stone-400 uppercase">İçilmeyen</span>
-<span class="text-lg font-bold text-on-surface">0 Dal</span>
+<span class="text-lg font-bold text-on-surface" id="stats-unsmoked">0 Dal</span>
 </div>
 <div class="flex flex-col">
 <span class="text-xs font-semibold text-stone-400 uppercase">Kazanılan Zaman</span>
-<span class="text-lg font-bold text-on-surface">0 dk</span>
+<span class="text-lg font-bold text-on-surface" id="stats-time">0 dk</span>
 </div>
 </div>
 </div>
 <div class="glass-card p-6 rounded-3xl bg-white shadow-sm">
-<h3 class="font-h3 text-h3 text-on-surface mb-6">Aktivite Takvimi</h3>
-<div class="grid grid-cols-7 gap-y-4 text-center">
-<div class="text-[10px] font-bold text-stone-400 uppercase">Pzt</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Sal</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Çar</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Per</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Cum</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Cmt</div>
-<div class="text-[10px] font-bold text-stone-400 uppercase">Paz</div>
-<div class="py-2 text-stone-300 font-medium">1</div>
-<div class="py-2 text-stone-300 font-medium">2</div>
-<div class="py-2 text-stone-300 font-medium">3</div>
-<div class="py-2 text-stone-300 font-medium">4</div>
-<div class="py-2 text-stone-300 font-medium">5</div>
-<div class="py-2 text-stone-300 font-medium">6</div>
-<div class="py-2 text-stone-300 font-medium">7</div>
-<div class="py-2 text-stone-300 font-medium">8</div>
-<div class="py-2 text-stone-300 font-medium">9</div>
-<div class="relative py-2 flex items-center justify-center">
-<div class="w-10 h-10 calendar-day active flex items-center justify-center font-bold">10</div>
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-h3 text-h3 text-on-surface">Aktivite Takvimi</h3>
+<span class="text-[11px] font-bold text-primary px-2 py-1 bg-emerald-50 rounded-lg" id="calendar-month">EYLÜL 2024</span>
 </div>
+<div class="grid grid-cols-7 gap-2 text-center" id="calendar-grid">
+<!-- Days will be injected by JS -->
 </div>
-<p class="text-center text-[11px] text-stone-400 mt-6 italic">Bugün sizin "0. Gününüz". İlk adımı attınız.</p>
+<p class="text-center text-[11px] text-stone-400 mt-6 italic" id="calendar-info">Bugün sizin "0. Gününüz". İlk adımı attınız.</p>
 </div>
 </section>
 <!-- 3. Kriz Modu View -->
-<section class="view-section space-y-section-margin" id="view-kriz-modu">
+<section class="view-section space-y-6" id="view-kriz-modu">
 <header>
 <h1 class="font-h1 text-h1 text-primary mb-2">Kriz Modu</h1>
-<p class="font-body-md text-on-surface-variant">Bana bir cümleyle ne olduğunu yaz...</p>
+<p class="font-body-md text-on-surface-variant">Şu an ne hissediyorsun? Bir kelime yaz...</p>
 </header>
 <div class="glass-card rounded-3xl p-6 shadow-sm border border-primary/10">
 <div class="relative">
-<input class="w-full bg-surface-container-lowest border-none rounded-2xl p-4 text-body-md focus:ring-2 focus:ring-primary/20 outline-none" id="crisis-input" oninput="detectKeywords()" placeholder="Örn: Çok canım sıkılıyor..." type="text"/>
+<input class="w-full bg-surface-container-lowest border-none rounded-2xl p-4 text-body-md focus:ring-2 focus:ring-primary/20 outline-none" id="crisis-input" oninput="detectKeywords()" placeholder="Örn: Kahve içtim..." type="text"/>
 </div>
 <div class="flex flex-wrap gap-2 mt-4">
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Sabah kahvesi')">Sabah kahvesi</button>
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Yemek sonrası')">Yemek sonrası</button>
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Çok stresliyim')">Çok stresliyim</button>
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Alkol yanındayım')">Alkol yanındayım</button>
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Canım çok çekti')">Canım çok çekti</button>
-<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Sıkıldım')">Sıkıldım</button>
+<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Kahve içtim')">☕ Kahve</button>
+<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Yemek sonrası')">🍽️ Yemek sonrası</button>
+<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Stresliyim')">😫 Stres</button>
+<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Canım çok çekti')">🔥 Şiddetli istek</button>
+<button class="px-3 py-1.5 rounded-full bg-emerald-50 text-primary font-label-sm border border-primary/10" onclick="applyChip('Sıkıldım')">🥱 Sıkıntı</button>
 </div>
 </div>
-<!-- Crisis Task Cards -->
-<div class="space-y-4" id="task-container">
-<div class="hidden relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg" id="task-water">
+<!-- Crisis Tasks Grid -->
+<div class="grid grid-cols-1 gap-4" id="task-container">
+<!-- Dynamic tasks show here -->
+<div class="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg hidden" id="task-water">
 <div class="flex items-center gap-2 mb-4">
 <span class="material-symbols-outlined">water_drop</span>
-<h2 class="font-h2 text-h3">Görevin: Su İç</h2>
+<h2 class="font-h2 text-h3 text-white">Görevin: Soğuk Su</h2>
 </div>
-<p class="mb-4">1 bardak soğuk su içerek vücudunu tazele ve isteği bastır.</p>
-<button class="w-full py-3 bg-white text-primary font-bold rounded-xl" onclick="completeTask('task-water')">Tamamladım</button>
+<p class="mb-4 text-emerald-50">1 bardak buz gibi soğuk su iç. Bu, ağzındaki tadı değiştirir ve isteği anında baskılar.</p>
+<button class="w-full py-3 bg-white text-primary font-bold rounded-xl active:scale-95 transition-transform" onclick="completeTask('task-water')">Tamamladım</button>
 </div>
-<div class="hidden relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-secondary to-secondary-fixed text-white shadow-lg" id="task-breath">
+<div class="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-secondary to-secondary-container text-white shadow-lg hidden" id="task-breath">
 <div class="flex items-center gap-2 mb-4">
 <span class="material-symbols-outlined">air</span>
-<h2 class="font-h2 text-h3">Görevin: Nefes Al</h2>
+<h2 class="font-h2 text-h3">4-7-8 Nefesi</h2>
 </div>
-<p class="mb-4">4-7-8 nefes tekniğini 3 kez uygula. Sakinleşeceksin.</p>
-<button class="w-full py-3 bg-white text-secondary font-bold rounded-xl" onclick="completeTask('task-breath')">Tamamladım</button>
+<p class="mb-4 opacity-90">4 sn al, 7 sn tut, 8 sn ver. Bunu 3 kez tekrarla. Sinir sistemin anında sakinleşecek.</p>
+<button class="w-full py-3 bg-white text-secondary font-bold rounded-xl active:scale-95 transition-transform" onclick="completeTask('task-breath')">Nefes Aldım</button>
 </div>
-<div class="hidden relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-tertiary to-tertiary-fixed text-white shadow-lg" id="task-move">
+<div class="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-tertiary to-tertiary-container text-white shadow-lg hidden" id="task-move">
 <div class="flex items-center gap-2 mb-4">
 <span class="material-symbols-outlined">directions_run</span>
-<h2 class="font-h2 text-h3">Görevin: Hareket Et</h2>
+<h2 class="font-h2 text-h3">Kısa Yürüyüş</h2>
 </div>
-<p class="mb-4">2 dakika boyunca yerinde say veya odayı değiştir.</p>
-<button class="w-full py-3 bg-white text-tertiary font-bold rounded-xl" onclick="completeTask('task-move')">Tamamladım</button>
+<p class="mb-4 opacity-90">2 dakikalık hızlı bir tur at veya odayı değiştir. Mekan değişikliği zihni dağıtır.</p>
+<button class="w-full py-3 bg-white text-tertiary font-bold rounded-xl active:scale-95 transition-transform" onclick="completeTask('task-move')">Yürüdüm</button>
 </div>
-<div class="hidden relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-[#4c463c] to-[#cfc5b9] text-white shadow-lg" id="task-fresh">
+<div class="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-[#4c463c] to-[#cfc5b9] text-white shadow-lg hidden" id="task-friend">
 <div class="flex items-center gap-2 mb-4">
-<span class="material-symbols-outlined">wind_power</span>
-<h2 class="font-h2 text-h3">Görevin: Temiz Hava</h2>
+<span class="material-symbols-outlined">call</span>
+<h2 class="font-h2 text-h3">Destek Al</h2>
 </div>
-<p class="mb-4">Pencereyi aç ve derin bir temiz hava al.</p>
-<button class="w-full py-3 bg-white text-stone-800 font-bold rounded-xl" onclick="completeTask('task-fresh')">Tamamladım</button>
+<p class="mb-4 opacity-90">Seni destekleyen bir arkadaşını ara. Sadece 1 dakika konuşmak bile odağını değiştirir.</p>
+<button class="w-full py-3 bg-white text-stone-800 font-bold rounded-xl active:scale-95 transition-transform" onclick="completeTask('task-friend')">Aradım</button>
+</div>
+<div class="relative overflow-hidden rounded-3xl p-6 bg-emerald-700 text-white shadow-lg hidden" id="task-snack">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined">restaurant</span>
+<h2 class="font-h2 text-h3">Sağlıklı Atıştırmalık</h2>
+</div>
+<p class="mb-4 opacity-90">Bir elma veya bir avuç çiğ kuruyemiş ye. Ağız meşguliyeti isteği azaltır.</p>
+<button class="w-full py-3 bg-white text-emerald-800 font-bold rounded-xl active:scale-95 transition-transform" onclick="completeTask('task-snack')">Atıştırdım</button>
+</div>
+</div>
+<!-- Default visible buttons -->
+<div class="space-y-3 pt-4" id="quick-crisis-buttons">
+<p class="text-xs font-bold text-stone-400 uppercase">HIZLI GÖREVLER</p>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 bg-white rounded-2xl border border-outline-variant/10 shadow-sm" onclick="showTask('task-water')">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+<span class="text-xs font-bold">Su İç</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-white rounded-2xl border border-outline-variant/10 shadow-sm" onclick="showTask('task-breath')">
+<span class="material-symbols-outlined text-secondary">air</span>
+<span class="text-xs font-bold">Nefes Al</span>
+</button>
 </div>
 </div>
 </section>
@@ -363,7 +396,7 @@
 </button>
 </div>
 <div class="flex flex-col gap-4 mt-10">
-<button class="w-full py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg flex items-center justify-center gap-2" onclick="switchView('ana-panel')">
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg flex items-center justify-center gap-2" onclick="resetApp()">
 <span class="material-symbols-outlined">refresh</span>
                 Sayacı sıfırla ve başla
             </button>
@@ -375,7 +408,7 @@
 </section>
 </main>
 <!-- Bottom Navigation Bar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-2 pb-8 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-3xl border-t border-[#6B8E6B]/10 shadow-[0_-4px_20px_rgba(0,0,0,0.04)] h-20">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-2 pb-8 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-3xl border-t border-[#6B8E6B]/10 shadow-[0_-4px_20_rgba(0,0,0,0.04)] h-20">
 <button class="nav-item active flex flex-col items-center justify-center px-4 py-2 transition-all" id="nav-ana-panel" onclick="switchView('ana-panel')">
 <span class="material-symbols-outlined">dashboard</span>
 <span class="font-['Manrope'] text-[11px] font-medium">Ana Panel</span>
@@ -394,6 +427,17 @@
 </button>
 </nav>
 <script>
+    // App State Management
+    let state = {
+        startTime: new Date(),
+        dailyCost: 120,
+        dailySmokes: 20,
+        motivation: "Sağlığım ve geleceğim için.",
+        goalName: "",
+        goalPrice: 0,
+        currentView: 'ana-panel'
+    };
+
     const tips = [
         "İstek dalgası en fazla 10 dakika sürer, diren!",
         "Derin bir nefes al ve neden başladığını hatırla.",
@@ -408,9 +452,8 @@
     }
 
     function switchView(viewId) {
-        document.querySelectorAll('.view-section').forEach(section => {
-            section.classList.remove('active');
-        });
+        state.currentView = viewId;
+        document.querySelectorAll('.view-section').forEach(section => section.classList.remove('active'));
         document.getElementById('view-' + viewId).classList.add('active');
 
         document.querySelectorAll('.nav-item').forEach(item => {
@@ -424,48 +467,121 @@
         if(viewId === 'ana-panel') {
             document.getElementById('daily-tip-text').innerText = tips[Math.floor(Math.random() * tips.length)];
         }
+        if(viewId === 'gelisim') {
+            renderCalendar();
+        }
 
         window.scrollTo(0, 0);
     }
 
-    function calculateSavings() {
-        const targetPrice = parseFloat(document.getElementById('goal-price').value) || 0;
-        const dailyCost = parseFloat(document.getElementById('daily-cost').value) || 120;
-        const currentSavings = 0; // In real app this would come from state
+    function updateAppState() {
+        state.dailyCost = parseFloat(document.getElementById('daily-cost').value) || 120;
+        state.motivation = document.getElementById('motivation-input').value || "Sağlığım için.";
+        state.goalName = document.getElementById('goal-name').value || "";
+        state.goalPrice = parseFloat(document.getElementById('goal-price').value) || 0;
+
+        document.getElementById('motivation-display').innerText = state.motivation;
+        calculateLogic();
+    }
+
+    function calculateLogic() {
+        const now = new Date();
+        const diffMs = now - state.startTime;
+        const diffSecs = Math.floor(diffMs / 1000);
+        const diffDays = Math.floor(diffSecs / 86400);
+        const diffHours = Math.floor((diffSecs % 86400) / 3600);
+        const diffMins = Math.floor((diffSecs % 3600) / 60);
+        const diffSecsRem = diffSecs % 60;
+
+        // Timer Update
+        document.getElementById('hero-days').innerText = `${diffDays} Gün`;
+        document.getElementById('hero-timer').innerText = 
+            `${String(diffHours).padStart(2, '0')}:${String(diffMins).padStart(2, '0')}:${String(diffSecsRem).padStart(2, '0')}`;
+
+        // Savings Update
+        const pricePerCig = state.dailyCost / state.dailySmokes;
+        const totalSavings = (diffSecs / 86400) * state.dailyCost;
         
-        document.getElementById('daily-info-label').innerText = `Kalan Gün (${dailyCost} TL/gün)`;
-        
-        const remainingAmount = targetPrice - currentSavings;
-        const daysText = document.getElementById('remaining-days-text');
-        
-        if (targetPrice > 0 && remainingAmount > 0) {
-            const days = Math.ceil(remainingAmount / dailyCost);
-            daysText.innerText = days + " Gün";
-            document.getElementById('progress-circle').innerText = "%" + Math.round((currentSavings / targetPrice) * 100);
+        document.getElementById('savings-formula').innerText = `Tasarruf: ${Math.floor(totalSavings)} TL (${state.dailyCost} TL/gün)`;
+        document.getElementById('stats-savings').innerText = Math.floor(totalSavings);
+        document.getElementById('stats-unsmoked').innerText = `${Math.floor((diffSecs / 86400) * state.dailySmokes)} Dal`;
+        document.getElementById('stats-time').innerText = `${Math.floor((diffSecs / 86400) * state.dailySmokes * 5)} dk`;
+        document.getElementById('progress-header').innerText = `${diffDays}. Gün: Yolculuk`;
+
+        // Goal Logic
+        if (state.goalPrice > 0) {
+            const remainingAmount = state.goalPrice - totalSavings;
+            const progress = Math.min(100, Math.max(0, (totalSavings / state.goalPrice) * 100));
+            const daysLeft = remainingAmount > 0 ? Math.ceil(remainingAmount / state.dailyCost) : 0;
+            
+            document.getElementById('remaining-days-text').innerText = `${daysLeft} Gün Kalan`;
+            document.getElementById('progress-circle').innerText = `%${Math.round(progress)}`;
+            document.getElementById('progress-circle').style.borderTopColor = progress >= 100 ? '#436444' : '#436444';
         } else {
-            daysText.innerText = "0 Gün";
-            document.getElementById('progress-circle').innerText = "%0";
+            document.getElementById('remaining-days-text').innerText = `0 Gün Kalan`;
+            document.getElementById('progress-circle').innerText = `%0`;
         }
+    }
+
+    function renderCalendar() {
+        const grid = document.getElementById('calendar-grid');
+        grid.innerHTML = '';
+        const dayNames = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+        dayNames.forEach(day => {
+            const el = document.createElement('div');
+            el.className = 'text-[10px] font-bold text-stone-400 uppercase pb-2';
+            el.innerText = day;
+            grid.appendChild(el);
+        });
+
+        const now = new Date();
+        const diffMs = now - state.startTime;
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+        for (let i = 1; i <= 31; i++) {
+            const dayEl = document.createElement('div');
+            dayEl.className = 'relative py-2 flex items-center justify-center';
+            
+            const circle = document.createElement('div');
+            circle.className = 'w-9 h-9 flex items-center justify-center font-bold transition-all';
+            circle.innerText = i;
+
+            if (i <= diffDays) {
+                circle.classList.add('past');
+            } else if (i === diffDays + 1) {
+                circle.classList.add('calendar-day', 'active');
+            } else {
+                circle.className = 'w-9 h-9 flex items-center justify-center text-stone-300 font-medium';
+            }
+
+            dayEl.appendChild(circle);
+            grid.appendChild(dayEl);
+        }
+        
+        document.getElementById('calendar-info').innerText = diffDays === 0 ? 
+            'Bugün sizin "0. Gününüz". İlk adımı attınız.' : 
+            `Harikasın! ${diffDays} gündür nefes alıyorsun.`;
     }
 
     function detectKeywords() {
         const input = document.getElementById('crisis-input').value.toLowerCase();
-        
-        // Hide all first
-        const tasks = ['task-water', 'task-breath', 'task-move', 'task-fresh'];
+        const tasks = ['task-water', 'task-breath', 'task-move', 'task-friend', 'task-snack'];
         tasks.forEach(id => document.getElementById(id).classList.add('hidden'));
 
-        if (input.includes('kahve') || input.includes('yemek') || input.includes('alkol')) {
-            document.getElementById('task-water').classList.remove('hidden');
+        if (input.includes('kahve') || input.includes('yemek')) {
+            showTask('task-water');
         } 
         if (input.includes('stres') || input.includes('çekti')) {
-            document.getElementById('task-breath').classList.remove('hidden');
+            showTask('task-breath');
         } 
         if (input.includes('sıkıldım') || input.includes('stres')) {
-            document.getElementById('task-move').classList.remove('hidden');
+            showTask('task-move');
         }
-        if (input.length > 5) {
-            document.getElementById('task-fresh').classList.remove('hidden');
+        if (input.includes('arkadaş') || input.includes('yardım')) {
+            showTask('task-friend');
+        }
+        if (input.length > 8) {
+            showTask('task-snack');
         }
 
         if (input === "") {
@@ -478,6 +594,11 @@
         detectKeywords();
     }
 
+    function showTask(id) {
+        document.getElementById(id).classList.remove('hidden');
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
     function completeTask(id) {
         const el = document.getElementById(id);
         el.style.opacity = '0.5';
@@ -487,9 +608,20 @@
         }, 300);
     }
 
-    // Initialize logic
+    function resetApp() {
+        if(confirm("Sayacı sıfırlamak istediğinden emin misin?")) {
+            state.startTime = new Date();
+            updateAppState();
+            switchView('ana-panel');
+        }
+    }
+
+    // Initialize Logic
     document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('daily-tip-text').innerText = tips[Math.floor(Math.random() * tips.length)];
+        // Initial setup
+        setInterval(calculateLogic, 1000);
+        updateAppState();
+        renderCalendar();
     });
 </script>
 </body></html>
